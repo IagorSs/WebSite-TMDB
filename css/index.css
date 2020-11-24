@@ -1,0 +1,626 @@
+@charset "utf-8";
+/* CSS Document */
+
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    font-family: "Arial";
+    padding: 0;
+    line-height: 20px;
+    font-size: 14px;
+    color: #000;
+    margin: 0px;
+    /* overflow: hidden; */
+    background-color: rgb(238 238 238);
+}
+
+p {
+    text-align: justify;
+}
+
+#links {
+    width: 100%;
+    height: 50px;
+    position: fixed;
+    display: flex;
+    justify-content: space-between;
+    z-index: 100;
+    padding: 5px;
+    background-color: rgb(192 192 192);
+}
+
+@media(min-width: 950px){
+    #links{
+        align-items: center;
+    }
+}
+
+#links label {
+    padding: 10px;
+    flex-grow: 1;
+    cursor: pointer;
+    transition: all 0.5s;
+    text-align: center;
+    font-family: "Consolas";
+    font-size: 100%;
+    color: #000;
+}
+
+#links label:hover {
+    background-color: rgba(255, 255, 255, 0.2);
+}
+
+#links #hamburguer img {
+    width: 40px;
+    height: 30px;
+    margin-top: 2px;
+    cursor: pointer;
+}
+
+#hamburguer {
+    display: flex;
+    align-items: center;
+}
+
+@media(max-width: 950px){
+    #hamburguer {
+        flex-direction: column;
+    }
+}
+
+@media(min-width: 950px){
+    #hamburguer_icon{
+        display: none;
+    }
+}
+
+.compress {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    background-color: rgb(192 192 192);
+}
+
+.menu-active {
+    background: black;
+}
+
+.icon,
+#links a {
+    height: 100%;
+}
+
+.scroll {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    overflow: auto;
+}
+
+.sections {
+    transition: all 0.4s;
+    display: flex;
+    flex-direction: column;
+}
+
+input {
+    display: none;
+}
+
+.bloco {
+    width: 96vw;
+    height: auto;
+    justify-content: center;
+    align-items: center;
+}
+
+#lancamento {
+    background-color: rgb(238 238 238);
+}
+
+#emdestaque {
+    background-color: rgb(238 238 238);
+}
+
+#avaliacoes {
+    background-color: rgb(238 238 238);
+}
+
+#entrevista {
+    background-color: rgb(238 238 238);
+}
+
+#novidades {
+    background-color: rgb(238 238 238);
+}
+
+.bloco img {
+    width: 8%;
+}
+
+.rodape {
+    width: 100%;
+    height: 15vh;
+    display: flex;
+    align-items: center;
+    background-color: #000000;
+    text-align: center;
+    color: white;
+    margin-top: 24px;
+}
+
+.rodape span {
+    width: 100%;
+    float: right;
+    margin: 15px;
+}
+
+.rodape img {
+    height: 100%;
+    width: auto;
+}
+
+.icon2 {
+    width: 10vw;
+    position: relative;
+    float: left;
+}
+
+.titulo_lan {
+    font-family: "Consolas";
+    font-size: 48px;
+    text-align: center;
+    padding: 35px;
+}
+
+.caixa_slider {
+    height: 100%;
+}
+
+.dot:hover,
+.dot.active {
+    background-color: #717171;
+}
+
+@media(max-width: 700px){
+    
+}
+
+.conteudo {
+    background-color: rgb(238 238 238);
+    display: flex;
+    overflow: auto;
+}
+
+.conteudo-entr {
+    background-color: rgb(238 238 238);
+    display: flex;
+    overflow: auto;
+}
+
+@media (max-width: 700px){
+    .conteudo {
+        flex-direction: column;
+        align-items: center;
+    }
+}
+
+#slide-wrapper > .conteudo {
+    display: none;
+}
+
+.conteudo img {
+    height: 60vh;
+    width: auto;
+}
+
+h2 {
+    margin: 0;
+}
+
+.textContent {
+width: 50vw;
+margin-left: 32px;
+}
+
+.w_iframe {
+    width: 500px;
+}
+
+@media(max-width: 700px){
+    .textContent {
+        width: 85vw;
+        margin-top: 16px;
+    }
+
+    .textContent h2 {
+        text-align: center;
+    }
+
+    .conteudo img {
+        width: 80vw;
+        max-width: 50vh;
+    }
+
+    .w_iframe{
+        width: 95%;
+    }
+}
+
+.w_iframe iframe {
+    width: 100%;
+}
+
+.textContent p span.bold {
+font-weight: bold;
+}
+
+#description {
+width: 100%;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+.text {
+    color: #000;
+    font-size: 15px;
+    padding: 8px 12px;
+    bottom: 8px;
+    width: 100%;
+    text-align: center;
+}
+
+#dot-wrapper{
+    margin-top: 16px;
+}
+
+.dot {
+    cursor: pointer;
+    height: 15px;
+    width: 15px;
+    margin: 0 2px;
+    background-color: #bbb;
+    border-radius: 50%;
+    display: inline-block;
+    transition: background-color 0.6s ease;
+}
+
+.fade {
+    -webkit-animation-name: fade;
+    -webkit-animation-duration: 1.5s;
+    animation-name: fade;
+    animation-duration: 1.5s;
+}
+
+@-webkit-keyframes fade {
+    from {
+        opacity: 0.4;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes fade {
+    from {
+        opacity: 0.4;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+.video {
+    flex: 50%;
+    position: relative;
+    float: left;
+    padding: 10px 10px 10px 10px;
+}
+
+.dados_video {
+    position: relative;
+    float: right;
+    padding: 10px 10px 10px 10px;
+}
+
+.dados_video h1 {
+    font-size: 30px;
+    font-weight: bold;
+    font-family: "Consolas";
+    margin: 0;
+}
+
+.novidades {
+    display: flex;
+    justify-content: center;
+}
+
+.coluum1 {
+    margin-right: 8px;
+    width: 65%;
+}
+
+.coluum2 {
+    margin: 10px;
+    width: 25%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+#editorial {
+    text-align: left;
+}
+
+.socialMedias {
+    display: flex;
+}
+
+.coluum {
+    width: auto;
+}
+
+.socialMediaImg {
+    height: 30px !important;
+    width: 30px !important;
+    margin-right: 15px;
+}
+
+.avatar {
+    width: 30% !important;
+    height: fit-content;
+}
+
+.item {
+    display: flex;
+}
+
+@media (max-width: 700px){
+    .novidades {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .coluum1 {
+        width: 96%;
+    }
+
+    .coluum2 {
+        text-align: center;
+        width: 96%;
+    }
+
+    .socialMedias {
+        justify-content: center;
+    }
+
+    .item {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .avatar {
+        width: 90% !important;
+    }
+}
+
+.texto {
+    padding-left: 10px;
+    padding-top: 10px;
+    text-align: justify;
+}
+
+.tag {
+    border-radius: 20px;
+    border: solid;
+    background-color: #717171;
+    border-color: #717171;
+    color: white;
+    padding-left: 5px;
+    padding-right: 5px;
+}
+
+.title      /* Palavras mais fortes nas linhas da descrição do video*/ {
+    font-size: 16px;
+    font-weight: bold;
+    font-family: "Consolas";
+}
+
+.avalia {
+    unicode-bidi: bidi-override;
+}
+.avalia > span {
+    display: inline-block;
+    position: relative;
+    width: 1.1em;
+}
+
+.search input {
+    padding: 6px;
+    font-size: 17px;
+    display: inline !important;
+    background-color: #c0c0c0;
+    border-radius: 3px;
+    border: 1px #000;
+    border-style: solid;
+}
+
+#searchField {
+    width: 20vw;
+    max-width: 230px;
+}
+
+.titulo_dest {
+    font-family: "Consolas";
+    font-size: 48px;
+    text-align: center;
+    padding-top: 60px;
+    padding-bottom: 20px;
+}
+
+#espaco_capas {
+    width: 100%;
+    height: 50vh;
+    display: grid;
+    margin: 0;
+    align-items: center;
+    justify-items: center;
+    grid-template-columns: repeat(6, 1fr);
+    column-gap: 8px;
+}
+
+@media(max-width: 700px){
+    #espaco_capas {
+        grid-template-columns: repeat(3, 1fr);
+        row-gap: 8px;
+    }
+}
+
+.capa {
+    width: 130px;
+    height: 250px;
+    display: contents;
+}
+.capa img {
+    width: 100%;
+    height: 100%;
+}
+
+.barra_pesquisa {
+    position: relative;
+    right: 0px;
+    top: 25%;
+    width: auto;
+    float: right;
+    height: auto;
+    margin-right: 10px;
+    margin-bottom: 30px;
+}
+
+#botao_filmes {
+    width: auto;
+    height: 2em;
+    border-radius: 8px;
+    margin-top: 30px;
+    cursor: pointer;
+}
+
+#botao_filmes:hover{
+    font-weight: bold;
+}
+
+#botao_filmes_wrapper {
+    display: flex;
+    justify-content: center;
+}
+
+.video-entr {
+    margin: 8px 16px;
+}
+
+@media (max-width: 500px){
+    .video-entr iframe {
+        width: 90vw;
+    }
+}
+
+.titulo_entre {
+    font-family: "Consolas";
+    font-size: 48px;
+    text-align: center;
+    padding: 30px;
+    line-height: normal;
+    width: auto;
+    height: auto;
+}
+
+.titulo_ava {
+    font-family: "Consolas";
+    font-size: 48px;
+    text-align: center;
+    padding: 35px;
+}
+
+.titulo_novi {
+    font-family: "Consolas";
+    font-size: 48px;
+    text-align: center;
+    padding: 25px;
+}
+
+.botao_ent {
+    width: auto;
+    margin-top: 16px;
+}
+
+.botao_lermais {
+    position: relative;
+    right: 0px;
+    bottom: 8%;
+    width: auto;
+    margin: 30px 200px 0 0px;
+}
+
+#avals {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    column-gap: 24px;
+    row-gap: 16px;
+}
+
+@media(max-width:950px){
+    #avals {
+        grid-template-columns: 1fr;
+    }
+}
+
+.ava
+{
+    display: flex;
+    width: auto;
+    height: auto;
+}
+
+@media(max-width:500px){
+    .ava{
+        flex-direction: column;
+        align-items: center;
+    }
+}
+
+.ava img {
+    width: auto;
+    max-width: 100px;
+    max-height: 100px;
+    border-radius: 50%;
+}
+
+.ava .text {
+    text-align: justify;
+    height: auto;
+    max-height: 50vh;
+    overflow: auto;
+    width: auto;
+}
+
+.ava .text h2 {
+    text-align: center;
+    margin-bottom: 8px;
+}
+
+.last-line {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 8px;
+}
+
+.last-line span {
+    font-weight: bold;
+    font-size: medium;
+}

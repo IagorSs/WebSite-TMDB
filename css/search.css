@@ -1,0 +1,188 @@
+@charset "utf-8";
+/* CSS Document */
+
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    font-family: "Arial";
+    padding: 0;
+    line-height: 20px;
+    font-size: 14px;
+    color: #000;
+    margin: 0px;
+    /* overflow: hidden; */
+    background-color: rgb(238 238 238);
+}
+
+.links {
+    width: 100%;
+    height: 50px;
+    position: fixed;
+    display: flex;
+    justify-content: space-between;
+    z-index: 100;
+    padding: 5px;
+    background-color: rgb(192 192 192);
+}
+
+.icon,
+.links a {
+    height: 100%;
+}
+
+.scroll {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    overflow: hidden;
+}
+
+input {
+    display: none;
+}
+
+.bloco {
+    width: 96vw;
+    min-height: 96vh;
+    justify-content: center;
+    align-items: center;
+    background-color: rgb(238 238 238);
+}
+
+.bloco img {
+    width: 8%;
+}
+
+button#load-more {
+  padding: 16px;
+  margin: 16px 0;
+  border-radius: 8px;
+  cursor: pointer;
+  outline: none;
+}
+
+button#load-more:hover{
+  font-weight: bold;
+}
+
+.rodape {
+    width: 100%;
+    height: 10vh;
+    display: flex;
+    align-items: center;
+    background-color: #000000;
+    text-align: center;
+    color: white;
+}
+
+.rodape span {
+    width: 100%;
+    float: right;
+    margin: 15px;
+}
+
+.rodape img {
+    height: 10vh;
+    width: auto;
+}
+
+@media (max-width: 700px){
+  .rodape {
+    height: 20vh;
+    flex-direction: column;
+  }
+
+  .rodape span {
+    width: 100%;
+    float: inline-start;
+    margin: 15px;
+  }
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+.search input {
+    padding: 6px;
+    font-size: 17px;
+    display: inline !important;
+    background-color: #c0c0c0;
+    border-radius: 3px;
+    border: 1px #000;
+    border-style: solid;
+}
+
+#titulo_dest {
+    font-family: "Consolas";
+    text-align: center;
+    padding-top: 60px;
+    padding-bottom: 20px;
+}
+
+#espaco_capas {
+    width: 100%;
+    margin: 10px 10px 10px 20px;
+    border: 0;
+    padding: 0;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    column-gap: 8px;
+    row-gap: 8px;
+}
+
+@media (max-width: 900px){
+  #espaco_capas {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 700px){
+  #espaco_capas {
+    grid-template-columns: 1fr;
+  }
+}
+
+.capa {
+  width: 96%;
+  height: 250px;
+  display: flex;
+  overflow: auto;
+  cursor: pointer;
+  transition: .4s;
+}
+
+.capa:hover {
+  background-color: #dbdbdb;
+}
+
+.capa a,
+.capa img {
+  height: 100%;
+  width: 130px;
+}
+
+.capa .description {
+  margin-left: 8px;
+}
+
+.barra_pesquisa {
+    position: relative;
+    right: 0px;
+    top: 25%;
+    width: auto;
+    float: right;
+    height: auto;
+    margin-right: 10px;
+    margin-bottom: 30px;
+}
+
+h2 {
+  margin-top: 2px;
+}
