@@ -17,9 +17,9 @@ const labels = document.getElementById("hamburguer_labels");
 let isMenuActivated = false;
 
 function checkSize() {
-  if(window.innerWidth < 950){
+  if(window.innerWidth < 750){
     labels.style.display = "none";
-    hamburguerButton.style.display = "flex";
+    hamburguerButton.style.display = "block";
     labels.classList.add("compress");
   } 
   else {
@@ -51,19 +51,13 @@ lancamentoButton.onclick = () => lancamentoSection.scrollIntoView();
 
 const destaqueButton = document.getElementById("rd_emdestaque");
 const destaqueSection = document.getElementById("emdestaque");
-destaqueButton.onclick = () => destaqueSection.scrollIntoView();
+destaqueButton.onclick = () => destaqueSection.scrollIntoView({
+  block: "center"
+});
 
 const avaliacaoButton = document.getElementById("rd_avaliacoes");
 const avaliacaoSection = document.getElementById("avaliacoes");
 avaliacaoButton.onclick = () => avaliacaoSection.scrollIntoView();
-
-const entrevistaButton = document.getElementById("rd_entrevista");
-const entrevistaSection = document.getElementById("entrevista");
-entrevistaButton.onclick = () => entrevistaSection.scrollIntoView();
-
-const novidadesButton = document.getElementById("rd_novidades");
-const novidadesSection = document.getElementById("novidades");
-novidadesButton.onclick = () => novidadesSection.scrollIntoView();
 
 const key = "0c44ec8e26aea5702eb3cb2e20f8938d";
 const TMDBBaseURL = "https://api.themoviedb.org/3/";

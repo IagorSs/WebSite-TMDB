@@ -3,31 +3,32 @@
 
 <head>
     <meta charset="utf-8">
-    <link href="css/index.css" rel="stylesheet" type="text/css">
     <meta name="viewport" content="width=device-width, initial-scale=1" />
+    
+    <link rel="shortcut icon" href="images/icon.png">
+    <link href="css/index.css" rel="stylesheet" type="text/css">
+
     <script src="https://code.jquery.com/jquery-3.5.0.js"
-				integrity="sha256-r/AaFHrszJtwpe+tHyNi/XCfMxYpbsRg2Uqn0x3s2zc="
-				crossorigin="anonymous"></script>
+        integrity="sha256-r/AaFHrszJtwpe+tHyNi/XCfMxYpbsRg2Uqn0x3s2zc="
+        crossorigin="anonymous"></script>
 </head>
 
 
 <body>
     <!--Links do cabeçalho que descem a página-->
 
-    <nav id="links">
+    <header>
         <a href="/">
-            <img class="icon" src="imagens/logo.png" alt="Logo">
+            <img src="images/logo.png" alt="Logo">
         </a>
 
         <div id="hamburguer">
-            <img src="imagens/Hamburguer-icon.png" id="hamburguer_icon"/>
+            <img src="images/Hamburguer-icon.svg" id="hamburguer_icon">
     
             <div id="hamburguer_labels">
                 <label for="rd_lancamento">Lançamentos</label>
                 <label for="rd_emdestaque">Em Destaque</label>
                 <label for="rd_avaliacoes">Avaliações</label>
-                <label for="rd_entrevista">Entrevistas & MakingOff</label>
-                <label for="rd_novidades">Novidades</label>
             </div>
         </div>
 
@@ -36,7 +37,7 @@
             <input id="searchField" type="text" placeholder="Pesquisar Filmes...">
             <input id="searchButton" type="submit" value="🔍︎">
         </div>
-    </nav>
+    </header>
 
     <!-- Pagina unica com scroll-->
 
@@ -45,315 +46,69 @@
         <input type="radio" name="grupo" id="rd_lancamento" checked="true">
         <input type="radio" name="grupo" id="rd_emdestaque">
         <input type="radio" name="grupo" id="rd_avaliacoes">
-        <input type="radio" name="grupo" id="rd_entrevista">
-        <input type="radio" name="grupo" id="rd_novidades">
 
         <section class="sections">
-            <section class="bloco" id="lancamento">
-                <br>
-                <div id="titulo_lan">
-                    <p class="titulo_lan">Lançamentos</p>
-                </div>
-                <div class="caixa_slider">
-                    <!-- Texto e video dentro da caixa do slider -->
-                    <div id="slide-wrapper">
-                        <!-- <div id="conteudo"> -->
-                            <!-- <div class="conteudo">
-                                <img src="/imagens/not_image.png" alt="Teste">
-                                <div class="video">
-                                    <iframe width="500" height="315" src="https://www.youtube.com/embed/PgrmbRID0eY"
-                                        frameborder="0"
-                                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                                        allowfullscreen></iframe>
-                                </div>
-                                <div class="dados_video">
-                                    <h1>Vingadores: Ultimato</h1>
-                                    <br>
-                                    <div>
-                                        <span class="title">Sinopse:</span>
-                                        <span>Após Thanos eliminar metade das criaturas vivas, os Vingadores têm de
-                                            lidar
-                                            com a perda de amigos e entes queridos. Com Tony Stark vagando perdido no
-                                            espaço sem água e comida, Steve Rogers e Natasha Romanov lideram a
-                                            resistência contra o titã louco.</span>
-                                    </div>
-                                    <br>
-                                    <div>
-                                        <p>
-                                            <span class="title">Diretor:</span>
-                                            <span>Joe Russo, Anthony Russo</span>
-                                        </p>
-
-                                        <p>
-                                            <span class="title"> Roteiro:</span>
-                                            <span>Christopher Markus, Stephen McFeely</span>
-                                        </p>
-
-                                        <p>
-                                            <span class="title"> Estreia:</span>
-                                            <span>25 de abril de 2019</span>
-                                        </p>
-                                    </div>
-                                    <br>
-                                    <div>
-                                        <span class="title">Elenco:</span><br>
-                                        <span>Robert Downey Jr. | Chris Evans | Mark Ruffalo | Scarlett Johansson |
-                                            Brie Larson | Paul Rudd | Jeremy Renner | Chris Hemswort </span>
-                                    </div>
-                                    <br>
-                                    <span class="title">Avaliações:</span>
-                                    <div class="avalia">
-                                        <span>★</span><span>★</span><span>★</span><span>★</span><span>☆</span>
-                                    </div>
-
-                                </div>
-
-                            </div> -->
-                        <!-- </div> -->
-
-                        <!-- Espaço pra colocar outro vídeo quando o slider funcionar
-                        <div class="mySlides fade">
-                            <iframe width="420 " height="315 " src="https://www.youtube.com/embed/tgbNymZ7vqY ">
-                            </iframe>
-                            <div class="text ">Caption Two</div>
-                        </div> -->
+            <div class="bloco-wrapper">
+                <section class="bloco" id="lancamento">
+                    <br>
+                    <div id="titulo_lan">
+                        <p class="titulo_lan">Lançamentos</p>
                     </div>
-
-
-
-                    <!-- Botoes redondos slider -->
-                    <div style="text-align:center;" id="dot-wrapper">
+                    <div class="caixa_slider">
+                        <!-- Texto e video dentro da caixa do slider -->
+                        <div id="slide-wrapper">
+                        </div>
+    
+                        <!-- Botoes redondos slider -->
+                        <div style="text-align:center;" id="dot-wrapper">
+                        </div>
+                        <!-- fim dos botões-->
                     </div>
-                    <!-- fim dos botões-->
-                </div>
-            </section>
+                </section>
+            </div>
             <!-- Fim da seção Lançamentos-->
 
             <!-- Inicio da seção Em Destaque-->
-            <section class="bloco" id="emdestaque">
-                <div id="titulo_dest">
-                    <p class="titulo_dest">Em Destaque</p>
-
-                    <div class="barra_pesquisa">
-                        <select name="Gêneros" id="barra_pesquisa_id">
-                            <option value="all">CATEGORIA:Todos</option>
-                        </select>
+            <div class="bloco-wrapper" id="emdestaque-wrapper">
+                <section class="bloco" id="emdestaque">
+                    <div id="titulo_dest">
+                        <p class="titulo_dest">Em Destaque</p>
+    
+                        <div class="barra_pesquisa">
+                            <select name="Gêneros" id="barra_pesquisa_id">
+                                <option value="all">Todos</option>
+                            </select>
+                        </div>
+    
+                        <div id="espaco_capas">
+                        </div>
+                        
+                        <div id="botao_filmes_wrapper">
+                            <button id="botao_filmes">
+                                Carregar mais
+                            </button>
+                        </div>
                     </div>
-
-                    <div id="espaco_capas">
-                    </div>
-                    
-                    <div id="botao_filmes_wrapper">
-                        <button id="botao_filmes" type="submit">Carregar mais</button>
-                    </div>
-                </div>
-            </section>
+                </section>
+            </div>
             <!-- Fim da seção Em Destaque-->
 
             <!--Inicio seção Avaliações-->
-            <section class="bloco" id="avaliacoes">
-                <p class="titulo_ava">Avaliações</p>
-                <div class="conteudo" id ="avals">
-                </div>
-            </section>
+            <div class="bloco-wrapper">
+                <section class="bloco" id="avaliacoes">
+                    <p class="titulo_lan">Avaliações</p>
+                    <div class="conteudo" id ="avals">
+                    </div>
+                </section>
+            </div>
             <!--Fim seção de avaliações-->
-
-            <!--Inicio seção Entrevistas & Making Off-->
-            <section class="bloco " id="entrevista">
-                <div id="titulo_entre">
-                    <p class="titulo_entre">Entrevistas & MakingOff</p>
-                    <div class="videos-wrapper">
-                        <div class="conteudo-entr">
-                            <div class="video-entr">
-                                <iframe width="450" height="300" src="https://www.youtube.com/embed/0PfH-Zqxq9g"
-                                    frameborder="0"
-                                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                                    allowfullscreen></iframe>
-                                <div class="ent">
-                                    <h1>Making Off Vingadores Ultimato</h1>
-                                    <span><b>Diretor:</b></span>
-                                    <span>Joe Russo, Anthony Russo</span>
-                                    <br>
-                                    <span><b>Roteiro:</b></span>
-                                    <span>Christopher Markus, Stephen McFeely</span>
-                                    <span><b>Estreia:</b></span>
-                                    <span>25 de abril de 2019</span>
-                                </div>
-                            </div>
-                            <div class="video-entr">
-                                <iframe width="450" height="300" src="https://www.youtube.com/embed/0N4GcIk_xVM"
-                                    frameborder="0"
-                                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                                    allowfullscreen></iframe>
-                                <div class="ent">
-                                    <h1>Entrevista-Homem Aranha: Volta ao Lar</h1>
-                                    <span><b>Diretor:</b></span>
-                                    <span>Jon Watts</span>
-                                    <br>
-                                    <span><b>Roteiro:</b></span>
-                                    <span>Jonathan Goldstein, John Francis Daley, Watts e Christopher Ford, e Chris
-                                        McKenna e Erik Sommers</span>
-                                    <span><b>Estreia:</b></span>
-                                    <span>6 de Julho de 2017(Brasil)</span>
-                                </div>
-                            </div>
-                            <div class="video-entr">
-                                <iframe width="450" height="300" src="https://www.youtube.com/embed/W1tMpkiRxxE"
-                                    frameborder="0"
-                                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                                    allowfullscreen></iframe>
-                                <div class="ent">
-                                    <h1>Pantera Negra: por trás das câmeras</h1>
-                                    <span><b>Diretor:</b></span>
-                                    <span>Ryan Coogler</span>
-                                    <br>
-                                    <span><b>Roteiro:</b></span>
-                                    <span> Ryan Coogler, Stan Lee, Jack Kirby, Joe Robert Cole</span>
-                                    <span><b>Estreia:</b></span>
-                                    <span>15 de fevereiro de 2018 (Brasil)</span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
     </div>
-    </section>
-    <!--Fim da seção Entrevista-->
-
-    <!--Inicio seção novidades-->
-    <section class="bloco " id="novidades">
-        <p class="titulo_novi">Novidades</p>
-        <div class="novidades">
-            <div class="coluum1 conteudoNews">
-                <div class="item">
-                    <img class="avatar" src="imagens/matrix.jpg">
-                    <div class="texto">
-                        <span class="title"><a
-                                href="https://www.tecmundo.com.br/minha-serie/195836-keanu-reeves-confirma-matrix-4-seguira-cronologia-franquia.htm">
-                                Keanu Reeves confirma que Matrix 4 seguirá cronologia da franquia</a></span><br>
-                        <span class="content">O ator Keanu Reeves confirmou em uma entrevista para a BBC que a
-                            história de Matrix 4
-                            se passará após a trama vista na trilogia original, afastando assim a possibilidade
-                            especulada por alguns
-                            fãs de o novo filme ser um prelúdio do filme lançado em 1999. Reeves participou de um
-                            bate-papo no programa
-                            The One Show da BBC ao lado do seu colega Alex Winter. Os dois atores foram convidados
-                            para a divulgação do
-                            novo filme Bill & Ted: Encare a Música. Keanu estava em Berlim e foi questionado pelo
-                            apresentador sobre o
-                            motivo de estar na cidade alemã. O ator disse que estava lá para as gravações de Matrix
-                            4.</span>
-                        <br>
-                        <span class="tag">#matrix</span>
-                        <span class="tag">#keanu</span>
-                        <span class="tag">#hollywood</span>
-                    </div>
-                </div>
-                <hr>
-                <div class="item">
-                    <img class="avatar" src="imagens/batman.jpg">
-                    <div class="texto">
-                        <span class="title">
-                            <a
-                                href="https://observatoriodocinema.uol.com.br/filmes/2020/09/batman-de-robert-pattinson-ganha-poster-incrivel-inspirado-em-quadrinhos-veja">
-                                Batman de Robert Pattinson ganha pôster incrível inspirado em
-                                quadrinhos
-                            </a>
-                        </span>
-                        <br>
-                        <span class="content">
-                            A pandemia do novo coronavírus pode ter sido um banho de água fria
-                            para a
-                            produção de Batman, com Robert Pattinson, mas os fãs continuam com as
-                            expectativas nas alturas pelo lme. Agora, um fã criou um pôster incrível para o
-                            lme da DC.
-                            Publicada no Twitter @KyleJamesFilm, de um cineasta independente, a arte traz os
-                            personagens centrais de Batman, como se fosse a capa de uma história em
-                            quadrinhos, toda em preto e branco.
-                        </span>
-
-                        <br>
-
-                        <span class="tag">#batman</span>
-                        <span class="tag">#robert</span>
-                        <span class="tag">#hollywood</span>
-                    </div>
-                </div>
-                <hr>
-                <div class="item">
-                    <img class="avatar" src="imagens/viuva negra.jpg">
-                    <div class="texto">
-                        <span class="title">
-                            <a href="https://www.tecmundo.com.br/cultura-geek/204199-viuva-negra-filmes-marvel-disney-adiados-cinema.htm">
-                                Viúva Negra e mais filmes da Marvel e da Disney são adiados
-                            </a>
-                        </span>
-                            
-                        <br>
-
-                        <span class="content">
-                            A Disney anunciou nesta quarta-feira (23) várias mudanças no
-                            calendário de estreias.
-                            Assim, produções como Viúva Negra, Morte no Nilo e West Side Story ganharam novas datas
-                            para chegar às
-                            telonas – e grande parte delas vão ser lançadas apenas em 2021. Os rumores sobre os
-                            adiamentos surgiram
-                            há algumas semanas, depois do fraco desempenho de Tenet nas bilheterias. Hoje, 70% dos
-                            cinemas norte-americanos
-                            estão em funcionamento, enquanto o público segue com medo do novo coronavírus.
-                        </span>
-                        <br>
-                        <span class="tag">#marvel</span>
-                        <span class="tag">#viuvanegra</span>
-                        <span class="tag">#hollywood</span>
-                    </div>
-                </div>
-            </div>
-            <div class="coluum2">
-                <div>
-                    <p class="content-c2">
-                        <hr>
-                        <h2> Sobre </h2>
-                        <br>
-                        <b>Trabalho prático 2 - Portal de Filmes integrados com API</b>
-                        projetado pelo aluno Renato Cesar Costa Nunes para a
-                        disciplina de desenvolvimento de interfaces web.
-                    </p>
-                </div>
-                <div class="line">
-                    <hr>
-                    <h2> Editorial </h2>
-                    <p id="editorial">
-                        👤 <b>Redação:</b>Renato César<br>
-                        👤 <b>Editorial:</b>Renato César<br>
-                        👤 <b>Gerente Geral:</b>Renato César<br>
-                    </p>
-                </div>
-
-                <div class="line">
-                    <hr>
-                    <h2>Redes Sociais</h2>
-
-                    <br>
-
-                    <div class="socialMedias">
-                        <a href="https://m.facebook.com/renato.cesar.1992"><img class="socialMediaImg"
-                                src="imagens/facebook.png" alt="Rede Social" /></a>
-                        <a href="https://www.instagram.com/renatinhogts/"><img class="socialMediaImg" src="imagens/instagram.png"
-                                alt="Rede Social" /></a>
-                    </div>
-                </div>
-            </div>
-        </div>
-        </div>
-    </section>
-    <!--Fim seção novidades-->
 
     <!--Inicio rodapé-->
-    <div class="rodape">
-        <span>Copyright 2020 - Disciplina de Desenvolvimento de Interfaces WEB - <b>ICEI PUC Minas</b></span>
-        <img class="icon2 " src="imagens/logo.png " alt="Logo ">
-    </div>
+    <footer>
+        <a href=""><h2>MIT LICENSE</h2></a>
+        <img src="images/logo.png" alt="Logo">
+    </footer>
     <!--Fim do rodape-->
 </div>
 

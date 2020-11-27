@@ -4,6 +4,8 @@
 
 * {
     box-sizing: border-box;
+    color: white;
+    font-family: 'Courier New', Courier, monospace;
 }
 
 body {
@@ -11,86 +13,139 @@ body {
     padding: 0;
     line-height: 20px;
     font-size: 14px;
-    color: #000;
     margin: 0px;
-    /* overflow: hidden; */
-    background-color: rgb(238 238 238);
+    background-color: #BA93DB;
+    width: 100%;
+}
+
+input,
+button,
+option,
+select {
+    color: black;
 }
 
 p {
     text-align: justify;
 }
 
-#links {
+header {
     width: 100%;
     height: 50px;
     position: fixed;
     display: flex;
     justify-content: space-between;
     z-index: 100;
-    padding: 5px;
-    background-color: rgb(192 192 192);
+    background-color: #310654;
+    padding: 0 5vw;
 }
 
 @media(min-width: 950px){
-    #links{
+    header{
         align-items: center;
     }
 }
 
-#links label {
-    padding: 10px;
-    flex-grow: 1;
+#hamburguer_labels {
+    height: 100%;
+    display: flex;
+    align-items: center;
+}
+
+header label {
+    height: 100%;
+    min-height: 3em;
     cursor: pointer;
-    transition: all 0.5s;
-    text-align: center;
-    font-family: "Consolas";
+    transition: .5s;
+    
     font-size: 100%;
-    color: #000;
+    color: white;
+    min-width: 8em;
+    background-color: #310654;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
-#links label:hover {
-    background-color: rgba(255, 255, 255, 0.2);
-}
-
-#links #hamburguer img {
-    width: 40px;
-    height: 30px;
-    margin-top: 2px;
-    cursor: pointer;
+header label:hover {
+    background-color: #4d157a;
 }
 
 #hamburguer {
     display: flex;
     align-items: center;
+    height: 100%;
 }
 
-@media(max-width: 950px){
+#hamburguer img {
+    height: 100%;
+    width: auto;
+    cursor: pointer;
+    padding: 8px 0;
+}
+
+@media(max-width: 750px){
     #hamburguer {
         flex-direction: column;
     }
 }
 
-@media(min-width: 950px){
-    #hamburguer_icon{
+@media(min-width: 750px){
+    #hamburguer img{
         display: none;
     }
 }
 
 .compress {
-    display: flex;
     flex-direction: column;
     width: 100%;
-    background-color: rgb(192 192 192);
 }
 
 .menu-active {
     background: black;
 }
 
-.icon,
-#links a {
+header a {
     height: 100%;
+    width: auto;
+    display: flex;
+    align-items: center;
+}
+
+header a img {
+    height: 80%;
+    width: auto;
+}
+
+.search {
+    height: 100%;
+    display: flex;
+    align-items: center;
+}
+
+.search input {
+    padding: 4px;
+    display: inline;
+    background-color: #eeeded;
+    border-radius: 4px;
+    border: 1px white;
+    border-style: solid;
+    height: 60%;
+}
+
+.search input + input {
+    margin-left: 4px;
+    width: 35px;
+}
+
+#searchField {
+    width: 20vw;
+    max-width: 230px;
+}
+
+#searchButton {
+    cursor: pointer;
 }
 
 .scroll {
@@ -110,6 +165,12 @@ input {
     display: none;
 }
 
+.bloco-wrapper {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
 .bloco {
     width: 96vw;
     height: auto;
@@ -117,88 +178,62 @@ input {
     align-items: center;
 }
 
-#lancamento {
-    background-color: rgb(238 238 238);
-}
-
-#emdestaque {
-    background-color: rgb(238 238 238);
-}
-
-#avaliacoes {
-    background-color: rgb(238 238 238);
-}
-
-#entrevista {
-    background-color: rgb(238 238 238);
-}
-
-#novidades {
-    background-color: rgb(238 238 238);
+#emdestaque-wrapper {
+    background-color: #a981ca;
+    padding-bottom: 24px;
 }
 
 .bloco img {
     width: 8%;
 }
 
-.rodape {
+footer {
     width: 100%;
     height: 15vh;
     display: flex;
     align-items: center;
-    background-color: #000000;
+    background-color: #310654;
     text-align: center;
     color: white;
     margin-top: 24px;
 }
 
-.rodape span {
+footer a,
+footer h2 {
     width: 100%;
-    float: right;
-    margin: 15px;
 }
 
-.rodape img {
-    height: 100%;
+footer img {
+    height: 70%;
     width: auto;
-}
-
-.icon2 {
-    width: 10vw;
     position: relative;
-    float: left;
+    right: 5vw;
 }
 
 .titulo_lan {
-    font-family: "Consolas";
+    
     font-size: 48px;
     text-align: center;
-    padding: 35px;
+    padding: 35px 0 0;
 }
 
 .caixa_slider {
     height: 100%;
 }
 
-.dot:hover,
-.dot.active {
-    background-color: #717171;
-}
-
-@media(max-width: 700px){
-    
+#slide-wrapper > .conteudo {
+    display: none;
 }
 
 .conteudo {
-    background-color: rgb(238 238 238);
     display: flex;
     overflow: auto;
+    justify-content: center;
 }
 
-.conteudo-entr {
-    background-color: rgb(238 238 238);
-    display: flex;
-    overflow: auto;
+.conteudo img {
+    height: 60vh;
+    width: auto;
 }
 
 @media (max-width: 700px){
@@ -206,15 +241,6 @@ input {
         flex-direction: column;
         align-items: center;
     }
-}
-
-#slide-wrapper > .conteudo {
-    display: none;
-}
-
-.conteudo img {
-    height: 60vh;
-    width: auto;
 }
 
 h2 {
@@ -282,13 +308,19 @@ a {
 
 .dot {
     cursor: pointer;
-    height: 15px;
-    width: 15px;
-    margin: 0 2px;
-    background-color: #bbb;
+    height: 16px;
+    width: 16px;
+    margin: 0 2px 8px;
+    background-color: black;
     border-radius: 50%;
     display: inline-block;
-    transition: background-color 0.6s ease;
+    transition: .6s ease;
+    opacity: .15;
+}
+
+.dot:hover,
+.dot.active {
+    opacity: .4;
 }
 
 .fade {
@@ -332,7 +364,7 @@ a {
 .dados_video h1 {
     font-size: 30px;
     font-weight: bold;
-    font-family: "Consolas";
+    
     margin: 0;
 }
 
@@ -429,7 +461,7 @@ a {
 .title      /* Palavras mais fortes nas linhas da descrição do video*/ {
     font-size: 16px;
     font-weight: bold;
-    font-family: "Consolas";
+    
 }
 
 .avalia {
@@ -441,27 +473,10 @@ a {
     width: 1.1em;
 }
 
-.search input {
-    padding: 6px;
-    font-size: 17px;
-    display: inline !important;
-    background-color: #c0c0c0;
-    border-radius: 3px;
-    border: 1px #000;
-    border-style: solid;
-}
-
-#searchField {
-    width: 20vw;
-    max-width: 230px;
-}
-
 .titulo_dest {
-    font-family: "Consolas";
+    
     font-size: 48px;
     text-align: center;
-    padding-top: 60px;
-    padding-bottom: 20px;
 }
 
 #espaco_capas {
@@ -503,21 +518,32 @@ a {
     margin-bottom: 30px;
 }
 
-#botao_filmes {
-    width: auto;
-    height: 2em;
-    border-radius: 8px;
-    margin-top: 30px;
-    cursor: pointer;
-}
-
-#botao_filmes:hover{
-    font-weight: bold;
-}
-
 #botao_filmes_wrapper {
     display: flex;
     justify-content: center;
+}
+
+#botao_filmes,
+select {
+    width: auto;
+    height: 2em;
+    border: 2px black;
+    border-radius: 8px;
+    border-style: solid;
+    outline: none;
+    margin-top: 30px;
+    cursor: pointer;
+    font-size: medium;
+    transition: .4s;
+}
+
+select {
+    margin-top: 0;
+}
+
+#botao_filmes:hover{
+    font-size: large;
+    background-color: #D4B424;
 }
 
 .video-entr {
@@ -531,7 +557,7 @@ a {
 }
 
 .titulo_entre {
-    font-family: "Consolas";
+    
     font-size: 48px;
     text-align: center;
     padding: 30px;
@@ -541,14 +567,14 @@ a {
 }
 
 .titulo_ava {
-    font-family: "Consolas";
+    
     font-size: 48px;
     text-align: center;
     padding: 35px;
 }
 
 .titulo_novi {
-    font-family: "Consolas";
+    
     font-size: 48px;
     text-align: center;
     padding: 25px;
@@ -612,6 +638,11 @@ a {
 .ava .text h2 {
     text-align: center;
     margin-bottom: 8px;
+}
+
+.review-wrapper{
+    width: auto;
+    min-width: 0;
 }
 
 .last-line {
