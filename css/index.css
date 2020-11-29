@@ -189,7 +189,7 @@ input {
 
 footer {
     width: 100%;
-    height: 15vh;
+    height: 18vh;
     display: flex;
     align-items: center;
     background-color: #310654;
@@ -198,9 +198,17 @@ footer {
     margin-top: 24px;
 }
 
-footer a,
-footer h2 {
+footer > div {
     width: 100%;
+    margin-top: 16px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+footer div a,
+footer div h2 {
+    width: 90%
 }
 
 footer img {
