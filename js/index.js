@@ -47,17 +47,18 @@ hamburguerButton.onclick = toggleHamburguer;
 
 const lancamentoButton = document.getElementById("rd_lancamento");
 const lancamentoSection = document.getElementById("lancamento");
-lancamentoButton.onclick = () => lancamentoSection.scrollIntoView();
+lancamentoButton.onclick = () => lancamentoSection.scrollIntoView({behavior:"smooth"});
 
 const destaqueButton = document.getElementById("rd_emdestaque");
 const destaqueSection = document.getElementById("emdestaque");
 destaqueButton.onclick = () => destaqueSection.scrollIntoView({
-  block: "center"
+  block: "center",
+  behavior: "smooth"
 });
 
 const avaliacaoButton = document.getElementById("rd_avaliacoes");
 const avaliacaoSection = document.getElementById("avaliacoes");
-avaliacaoButton.onclick = () => avaliacaoSection.scrollIntoView();
+avaliacaoButton.onclick = () => avaliacaoSection.scrollIntoView({behavior: "smooth"});
 
 const key = "0c44ec8e26aea5702eb3cb2e20f8938d";
 const TMDBBaseURL = "https://api.themoviedb.org/3/";
