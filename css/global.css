@@ -1,0 +1,36 @@
+:root {
+  --white: #eeeded;
+
+  --primary: #BA93DB;
+  --primary-contrast: #a981ca;
+
+  --primary-dark: #310654;
+  --primary-dark-hover: #4d157a;
+}
+
+* {
+  box-sizing: border-box;
+  color: white;
+  font-family: 'Courier New', Courier, monospace;
+}
+
+body {
+  font-family: "Arial";
+  padding: 0;
+  line-height: 20px;
+  font-size: 14px;
+  margin: 0px;
+  background-color: var(--primary);
+  width: 100%;
+}
+
+input,
+button,
+option,
+select {
+  color: black;
+}
+
+p {
+  text-align: justify;
+}
