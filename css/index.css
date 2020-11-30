@@ -188,7 +188,16 @@ footer > div {
 
 footer div a,
 footer div h2 {
-    width: 90%
+    width: 90%;
+    transition: .6s ease;
+}
+
+footer div a h3 {
+    color: var(--secondary);
+}
+
+footer div a:hover {
+    opacity: .6;
 }
 
 footer img {
@@ -515,7 +524,9 @@ select {
 
 #botao_filmes:hover{
     font-size: large;
-    background-color: #D4B424;
+    font-weight: 600;
+    color: white;
+    background-color: var(--secondary);
 }
 
 #avals {
