@@ -3,46 +3,56 @@
 
 <head>
   <meta charset="utf-8">
-  <link href="/css/movie.css" rel="stylesheet" type="text/css">
   <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <link rel="shortcut icon" href="/images/icon.png">
+  <link rel="stylesheet" href="/css/global.css" type="text/css">
+  <link href="/css/movie.css" rel="stylesheet" type="text/css">
+
   <script src="https://code.jquery.com/jquery-3.5.0.js"
       integrity="sha256-r/AaFHrszJtwpe+tHyNi/XCfMxYpbsRg2Uqn0x3s2zc="
       crossorigin="anonymous"></script>
 </head>
 
 <body>
-    <!--Links do cabeçalho que descem a página-->
 
-    <nav class="links">
+  <header>
       <a href="/">
-        <img class="icon" src="images/logo.png" alt="Logo">
+          <img src="/images/logo.png" alt="Logo">
       </a>
 
       <div class="search">
-        <input id="searchField" type="text" placeholder="Pesquisar Filmes...">
-        <input id="searchButton" type="submit" value="🔍︎">
+          <input id="searchField" type="text" placeholder="Pesquisar Filmes...">
+          <input id="searchButton" type="submit" value="🔍︎">
       </div>
+  </header>
 
-    </nav>
+  <div class="titleWrapper">
+    <h1 id="movieTitle"></h1>
+  </div>
 
-    <div class="titleWrapper">
-      <h1 id="movieTitle"></h1>
+  <div class="contentWrapper">
+    <div id="content">
     </div>
 
-    <div class="contentWrapper">
-      <div id="content">
-      </div>
+    <div id="botao_filmes_wrapper" onclick="history.back()">
+      <button id="botao_filmes">
+          Voltar
+      </button>
+    </div>
+  </div>
 
-      <button onclick="history.back()">Voltar</button>
+  <footer>
+
+    <div>
+      <h2>Site produzido por <b>Iagor de Sousa</b></h2>
+      <a target="_blank" href="https://github.com/IagorSs/WebSite-TMDB/blob/main/LICENSE"><h3>MIT LICENSE</h3></a>
     </div>
 
+    <img src="/images/logo.png" alt="Logo">
 
-    <!--Inicio rodapé-->
-    <div class="rodape ">
-      <span>Copyright 2020 - Disciplina de Desenvolvimento de Interfaces WEB - <b>ICEI PUC Minas</b></span>
-      <img class="icon2 " src="images/logo.png" alt="Logo ">
-    </div>
-    <!--Fim do rodape-->
+  </footer>
+
 </div>
 
 <script src="/js/movie.js" type="module"></script>

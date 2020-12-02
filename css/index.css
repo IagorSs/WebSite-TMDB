@@ -245,8 +245,8 @@ h2 {
 }
 
 .textContent {
-width: 50vw;
-margin-left: 32px;
+    width: 50vw;
+    margin-left: 32px;
 }
 
 .w_iframe {
@@ -278,11 +278,11 @@ margin-left: 32px;
 }
 
 .textContent p span.bold {
-font-weight: bold;
+    font-weight: bold;
 }
 
 #description {
-width: 100%;
+    width: 100%;
 }
 
 a {
