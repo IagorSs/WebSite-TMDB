@@ -1,0 +1,38 @@
+.content {
+  display: flex;
+  flex-direction: column;
+  width: 40vw;
+  justify-content: center;
+  align-items: center;
+  background-color: transparent;
+  border: 8px solid var(--primary-dark);
+  border-radius: 16px;
+  padding: 32px 4vw;
+}
+
+.content > * + *{
+  margin-top: 16px;
+}
+
+.input-field {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+.input-field > * + *{
+  margin-top: 4px;
+}
+
+.input-field label {
+  font-size: large;
+}
+
+.input-field input,
+button {
+  border-radius: 4px;
+  border-width: 1px;
+  background-color: var(--white);
+  padding: 0.5em;
+  font-size: small;
+}
