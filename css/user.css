@@ -8,6 +8,7 @@
   border: 8px solid var(--primary-dark);
   border-radius: 16px;
   padding: 32px 4vw;
+  min-width: 312px;
 }
 
 .content > * + *{
@@ -50,4 +51,11 @@
   padding: 0.5em;
   font-size: medium;
   font-weight: bold;
+  min-width: 110px;
+}
+
+img {
+  width: 100%;
+  max-width: 300px;
+  margin-bottom: 32px;
 }

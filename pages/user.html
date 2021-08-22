@@ -13,28 +13,29 @@
         integrity="sha256-r/AaFHrszJtwpe+tHyNi/XCfMxYpbsRg2Uqn0x3s2zc="
         crossorigin="anonymous"></script>
 
-    <title>AGEI</title>
+    <title>AJEI</title>
 </head>
 
 
 <body>
 
-    <div class="content">
+    <form class="content" id="user-form">
+        <img src="/images/logo.png" alt="AJEI">
         <div class="input-field">
-            <label for="User">Usuário</label>
+            <label for="User">Login</label>
             <input type="text" id="User"/>
         </div>
 
         <div class="input-field">
             <label for="Pass">Senha</label>
-            <input type="text" id="Pass"/>
+            <input type="password" id="Pass"/>
         </div>
 
         <div class="buttons">
-            <button class="primary-button" type="submit">Entrar</button>
-            <button class="primary-button" type="button">Cadastrar</button>
+            <button class="primary-button" type="submit" name="Login">Entrar</button>
+            <button class="primary-button" type="submit" name="Register">Cadastrar</button>
         </div>
-    </div>
+    </form>
 
     <script type="module" src="/js/user.js"></script>
 
