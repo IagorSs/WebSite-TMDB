@@ -24,6 +24,10 @@ body {
   margin: 0px;
   background-color: var(--primary);
   width: 100%;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 input,
@@ -35,4 +39,14 @@ select {
 
 p {
   text-align: justify;
+}
+
+.primary-button {
+  cursor: pointer;
+  transition: .2s;
+}
+
+.primary-button:hover{
+  color: var(--white);
+  background-color: var(--secondary);
 }
