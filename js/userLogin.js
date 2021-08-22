@@ -17,12 +17,7 @@ passField.onchange = ({ target }) => forms.pass = target.value;
 
 const form = document.getElementById('user-form');
 form.onsubmit = (event) => {
-  const userData = {
-    inscricao: '',
-    email: '',
-    nome: '',
-    login: ''
-  };
+  let userData;
 
   switch (event.submitter.name) {
     // TODO implementar chamada na API pra retornar os dados
