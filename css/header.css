@@ -1,0 +1,16 @@
+#menu-drop {
+  background-color: var(--primary-dark);
+  position: absolute;
+  top: 50px;
+  right: 10vw;
+}
+
+#menu-drop > * {
+  padding: 0.8em;
+  margin: 0;
+  cursor: pointer;
+}
+
+#menu-drop > *:hover {
+  background-color: var(--primary-dark-hover);
+}
