@@ -20,28 +20,6 @@ body {
   margin-top: 16px;
 }
 
-.input-field {
-  display: flex;
-  flex-direction: column;
-  width: 100%;
-}
-
-.input-field > * + *{
-  margin-top: 4px;
-}
-
-.input-field label {
-  font-size: large;
-}
-
-.input-field input{
-  border-radius: 4px;
-  border-width: 1px;
-  background-color: var(--white);
-  padding: 0.5em;
-  font-size: small;
-}
-
 .buttons {
   display: flex;
   width: 100%;
@@ -50,12 +28,6 @@ body {
 
 .buttons > * {
   width: 48%;
-  border-radius: 4px;
-  border-width: 1px;
-  background-color: var(--white);
-  padding: 0.5em;
-  font-size: medium;
-  font-weight: bold;
   min-width: 110px;
 }
 

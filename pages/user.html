@@ -9,6 +9,7 @@
     <link rel="stylesheet" href="/css/global.css" type="text/css">
     <link href="/css/user.css" rel="stylesheet" type="text/css">
     <link href="/css/header.css" rel="stylesheet" type="text/css">
+    <link href="/css/input-field.css" rel="stylesheet" type="text/css">
 
     <script src="https://code.jquery.com/jquery-3.5.0.js"
         integrity="sha256-r/AaFHrszJtwpe+tHyNi/XCfMxYpbsRg2Uqn0x3s2zc="
@@ -35,19 +36,31 @@
     <form class="content">
 
         <div class="input-field">
-            <label for="Pass">Senha</label>
-            <input type="password" id="Pass"/>
+            <label for="Id">Inscrição</label>
+            <input type="text" id="Id" disabled/>
         </div>
     
         <div class="input-field">
-            <label for="Pass">Senha</label>
-            <input type="password" id="Pass"/>
+            <label for="Email">Email</label>
+            <input type="text" id="Email"/>
+        </div>
+
+        <div class="input-field">
+            <label for="Name">Nome</label>
+            <input type="text" id="Name"/>
+        </div>
+
+        <div class="input-field">
+            <label for="Login">Login</label>
+            <input type="text" id="Login"/>
         </div>
     
         <div class="input-field">
-            <label for="Pass">Senha</label>
+            <label for="Pass">Confirme a senha</label>
             <input type="password" id="Pass"/>
         </div>
+
+        <button class="primary-button" type="submit" name="Login">Atualizar</button>
 
     </form>
 
