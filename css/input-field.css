@@ -12,7 +12,8 @@
   font-size: large;
 }
 
-.input-field input{
+.input-field input,
+.input-field select{
   border-radius: 4px;
   border-width: 1px;
   background-color: var(--white);
