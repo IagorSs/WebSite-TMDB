@@ -14,3 +14,43 @@
 #menu-drop > *:hover {
   background-color: var(--primary-dark-hover);
 }
+
+header,
+footer {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  background-color: var(--primary-dark);
+  padding: 0 10vw;
+}
+
+header {
+  height: 50px;
+  justify-content: space-between;
+}
+
+footer {
+  height: 200px;
+  justify-content: center;
+}
+
+header a,
+footer a {
+  height: 100%;
+  display: flex;
+  align-items: center;
+}
+
+header img,
+footer img {
+  height: 80%;
+  cursor: pointer;
+}
+
+header > img {
+  transition: .2s;
+}
+
+header > img:hover {
+  opacity: .6;
+}
