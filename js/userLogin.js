@@ -1,8 +1,4 @@
-const env = {
-  url: 'http://127.0.0.1:5500'
-}
-
-if (sessionStorage.getItem('user')) window.location = `${env.url}`
+if (sessionStorage.getItem('user')) window.location.replace(`/pages/user.html`);
 
 const forms = {
   user: '',
