@@ -7,6 +7,9 @@ profileIcon.onclick = () => menuProfile.style.display === 'none' ? menuProfile.s
 const myProfile = document.getElementById('MyProfile');
 myProfile.onclick = () => window.location.replace('/pages/user.html');
 
+const myPlain = document.getElementById('MyPlain');
+myPlain.onclick = () => window.location.replace('/pages/userPlain.html');
+
 const logOut = document.getElementById('LogOut');
 logOut.onclick = () => {
   sessionStorage.removeItem('user');

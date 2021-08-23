@@ -35,34 +35,29 @@
     </header>
 
     <form id="UpdatedForm" class="content">
+    
+        <div class="input-field">
+            <label for="Categoria">Categoria</label>
+            <select id="Categoria"></select>
+        </div>
 
         <div class="input-field">
-            <label for="Id">Inscrição</label>
-            <input type="text" id="Id" disabled/>
+            <label for="Screens">Telas Contratadas</label>
+            <input type="number" id="Screens" value="0"/>
+        </div>
+
+        <div class="input-field">
+            <label for="Pagamento">Pagamento</label>
+            <select id="Pagamento"></select>
         </div>
     
         <div class="input-field">
-            <label for="Email">Email</label>
-            <input type="text" id="Email"/>
+            <label for="Expiracao">Expiração</label>
+            <input type="date" id="Expiracao"/>
         </div>
 
-        <div class="input-field">
-            <label for="Name">Nome</label>
-            <input type="text" id="Name"/>
-        </div>
-
-        <div class="input-field">
-            <label for="Login">Login</label>
-            <input type="text" id="Login"/>
-        </div>
-    
-        <div class="input-field">
-            <label for="Pass">Confirme a senha</label>
-            <input type="password" id="Pass"/>
-        </div>
-
-        <button class="primary-button" type="submit">Atualizar</button>
-        <button class="primary-button" type="button" id="DeleteUser">Deletar</button>
+        <button class="primary-button" type="submit" id="ConfirmPlain">Atualizar</button>
+        <button class="primary-button" type="button" id="DeletePlain">Deletar</button>
 
     </form>
 
@@ -73,7 +68,7 @@
     </footer>
 
 
-    <script type="module" src="/js/user.js"></script>
+    <script type="module" src="/js/userPlain.js"></script>
     <script type="module" src="/js/header.js"></script>
     <script type="module" src="/js/global.js"></script>
 

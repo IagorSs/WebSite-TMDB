@@ -29,7 +29,7 @@ UpdatedForm.onsubmit = (e) => {
     method: 'PUT',
     headers,
     body: JSON.stringify({
-      inscricao: IdField.value,
+      inscricao: userData.inscricao,
       email: EmailField.value,
       login: LoginField.value,
       nome: NameField.value,
@@ -48,7 +48,7 @@ UpdatedForm.onsubmit = (e) => {
 
 const DeleteUser = document.getElementById('DeleteUser');
 DeleteUser.onclick = () => {
-  fetch(`${baseUrl}usuario/deletar/${IdField.value}`, {
+  fetch(`${baseUrl}usuario/deletar/${userData.inscricao}`, {
     method: 'DELETE'
   })
   .then(res => {
