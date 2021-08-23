@@ -11,3 +11,7 @@ form button {
   width: 100%;
   margin-top: 64px !important;
 }
+
+form button + button {
+  margin-top: 16px !important;
+}
