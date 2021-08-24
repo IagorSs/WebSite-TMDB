@@ -1,360 +1,185 @@
-const searchButton = document.getElementById('searchButton');
+const baseUrl = 'http://localhost:3000/api/v1/';
 
-const searchField = document.getElementById('searchField');
-
-searchField.addEventListener('keypress', (e) => e.key === 'Enter' ? searchMovie():'');
-
-searchButton.addEventListener('click', searchMovie);
-
-function searchMovie () {
-  window.location = `/pages/search.html?movie=${searchField.value}`;
-}
-
-const hamburguerWrapper = document.getElementById("hamburguer");
-const hamburguerButton = document.getElementById("hamburguer_icon");
-const labels = document.getElementById("hamburguer_labels");
-
-let isMenuActivated = false;
-
-function checkSize() {
-  if(window.innerWidth < 750){
-    labels.style.display = "none";
-    hamburguerButton.style.display = "block";
-    labels.classList.add("compress");
-  } 
-  else {
-    labels.style.display = "flex";
-    hamburguerButton.style.display = "none";
-    labels.classList.remove("compress");
-  }
-}
-
-window.onresize = checkSize;
-
-document.addEventListener('DOMContentLoaded', checkSize);
-
-function toggleHamburguer() {
-  isMenuActivated = !isMenuActivated;
-
-  if(isMenuActivated){
-    labels.style.display = "flex";
-  } else {
-    labels.style.display = "none";
-  }
-}
-
-hamburguerButton.onclick = toggleHamburguer;
-
-const lancamentoButton = document.getElementById("rd_lancamento");
-const lancamentoSection = document.getElementById("lancamento");
-lancamentoButton.onclick = () => lancamentoSection.scrollIntoView({behavior:"smooth"});
-
-const destaqueButton = document.getElementById("rd_emdestaque");
-const destaqueSection = document.getElementById("emdestaque");
-destaqueButton.onclick = () => destaqueSection.scrollIntoView({
-  block: "center",
-  behavior: "smooth"
-});
-
-const avaliacaoButton = document.getElementById("rd_avaliacoes");
-const avaliacaoSection = document.getElementById("avaliacoes");
-avaliacaoButton.onclick = () => avaliacaoSection.scrollIntoView({behavior: "smooth"});
-
-const key = "0c44ec8e26aea5702eb3cb2e20f8938d";
-const TMDBBaseURL = "https://api.themoviedb.org/3/";
-const YoutubeBaseURL = "https://www.youtube.com/"
-
-let dotsSlider = [];
-let slides = [];
-
-document.addEventListener('DOMContentLoaded', () => {  
-  fetch(`${TMDBBaseURL}movie/upcoming?api_key=${key}&language=pt-BR`)
-    .then(response => response.json())
-    .then((dataVec) => {
-      const contentWrapper = document.getElementById("slide-wrapper");
-
-      dataVec.results.map((data) => {
-        fetch(`${TMDBBaseURL}movie/${data.id}/videos?api_key=${key}&language=pt-BR`)
-          .then(result => result.json())
-          .then(videos => {
-            let video, hasFind = false;
-            const content = document.createElement("div");
-            
-            for(let i=0; i<videos.results.length; i++){
-              if(videos.results[i].site === "YouTube" && videos.results[i].type === "Trailer"){
-                video = videos.results[i].key;
-                hasFind = true;
-                break;
-              }
-            }
-            
-            if(hasFind){
-              const videoWrapper = document.createElement("div");
-              videoWrapper.classList.add("w_iframe");
-
-              const videoElement = document.createElement("iframe");
-              videoElement.height = "315";
-              videoElement.src = `${YoutubeBaseURL}embed/${video}`;
-              videoElement.allow = "accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture";
-              videoElement.allowFullscreen = true;
-              videoWrapper.appendChild(videoElement);
-              content.appendChild(videoWrapper);
-            } else {
-              const img = document.createElement("img");
-              img.src = data.poster_path ? `https://image.tmdb.org/t/p/w200${data.poster_path}`:'/imagens/not_image.png';
-              img.alt = `Capa de ${data.title}`;
-              content.appendChild(img);
-            }
-
-            const textContent = document.createElement("div");
-            textContent.className = "textContent";
-      
-            const originalTitle = document.createElement("h2");
-            originalTitle.append(data.original_title);
-            textContent.appendChild(originalTitle);
-      
-            textContent.appendChild(document.createElement("hr"));
-      
-            const originalLanguage = document.createElement("p");
-              const bold1 = document.createElement("span");
-              bold1.className = "bold";
-              bold1.append("Língua original: ");
-              originalLanguage.appendChild(bold1);
-              originalLanguage.append(data.original_language);
-            textContent.appendChild(originalLanguage);
-      
-            const aval = document.createElement("p");
-              const bold2 = document.createElement("span");
-              bold2.className = "bold";
-              bold2.append("Avaliação: ");
-              aval.appendChild(bold2);
-              aval.append(`${data.vote_average} / 10`);
-            textContent.appendChild(aval);
-      
-            const releaseDate = document.createElement("p");
-              const bold3 = document.createElement("span");
-              bold3.className = "bold";
-              bold3.append("Data de estreia: ");
-              releaseDate.appendChild(bold3);
-              releaseDate.append(`${data.release_date.slice(8,10)}/${data.release_date.slice(5,7)}/${data.release_date.slice(0,4)}`);
-            textContent.appendChild(releaseDate);
-      
-            const description = document.createElement("p");
-            description.id = "description";
-            description.append(data.overview);
-            textContent.appendChild(description);
-            
-            content.appendChild(textContent);
-            content.classList.add("conteudo");
-            content.classList.add("fade");
-    
-            slides.push(content);
-            contentWrapper.appendChild(content);
-
-            changeSlideTo(0);
-          })
-      })
-      
-      const dotWrapper = document.getElementById("dot-wrapper");
-
-      for(let i=0; i<Math.min(dataVec.total_results, 20); i++) {
-        const dot = document.createElement("span");
-        dot.classList.add("dot");
-        dot.onclick = () => changeSlideTo(i);
-
-        dotWrapper.appendChild(dot);
-        dotsSlider.push(dot);
-      }
-
-    })
-})
-
-function changeSlideTo(newSlide) {
-  slides.forEach(slide => slide.style.display = "none");
-  dotsSlider.forEach(dot => dot.classList.remove("active"));
-
-  slides[newSlide].style.display = "flex";
-  dotsSlider[newSlide].classList.add("active");
-}
-
-const genres = document.getElementById("barra_pesquisa_id");
+const categories = document.getElementById("barra_pesquisa_id");
 
 document.addEventListener('DOMContentLoaded', () => {
-  fetch(`${TMDBBaseURL}genre/movie/list?api_key=${key}&language=pt-BR`)
-    .then(result => result.json())
-    .then(data => {
-      data.genres.map((genre) => {
-        const option = document.createElement("option");
-        option.value = genre.id;
-        option.append(genre.name);
-
-        genres.appendChild(option);
-      })
+  fetch(`${baseUrl}/categoria/getAll`)
+    .then(res => {
+      if (res.status >= 400 && res.status < 600) {
+        throw new Error("Bad res from server");
+      }
+      return res.json();
     })
+    .then(res => res.forEach(category => {
+      const categoryOption = document.createElement('option');
+      categoryOption.value = category;
+      categoryOption.innerText = category;
+  
+      categories.appendChild(categoryOption);
+    }))
+    .catch(res => console.log(res));
 });
 
-genres.onchange = resetMovies;
+categories.onchange = resetMovies;
 
-let startMovies = 0, finalMovies = 6;
+const WrapperFilmes = document.getElementById("WrapperFilmes");
+
+let startMovies = 0, finalMovies = 4;
 
 function resetMovies() {
   startMovies = 0;
-  finalMovies = 6;
-  espacoCapas.innerHTML = '';
-  avals.innerHTML = '';
+  finalMovies = 4;
+  WrapperFilmes.innerHTML = '';
   loadMore();
 }
 
 let mostPopular = [];
-let mostPopularTotalPages;
-let mostPopularPage = 1;
+let totalPages;
+let currentPage = 1;
 
-async function loadPopulars() {
-  fetch(`${TMDBBaseURL}movie/popular?api_key=${key}&language=pt-BR&page=${mostPopularPage}`)
-    .then(result => result.json())
-    .then(data => {
-      data.results.map((result) => {
+async function loadMovies() {
+  // if(categories.value != 'viewers') {
+  //   // FIXME conferir se isso daqui funciona
+  //   // FIXME colocar a categoria em questão na url
+  //   fetch(`${baseUrl}filme/getAll?page=${currentPage}`)
+  //   .then(result => result.json())
+  //   .then(res => {
+  //     const obj = {
+  //       results: [{
+  //         id: 0,
+  //         categoria: 'tt',
+  //         duracao: 120,
+  //         nome: 'titulo',
+  //         produtora: 'prod',
+  //         arquivo: {},
+  //         descricao: 'siopse',
+  //         url_trailer: 'url_trailer',
+  //         image_url: 'image',
+  //         ator: {
+  //           id: 2,
+  //           nome: 'nome_ator',
+  //           nascimento: new Date
+  //         },
+  //         diretor: {
+  //           id: 3,
+  //           nome: 'nome_diretor',
+  //           nascimento: new Date,
+  //           filmesDirigidos: 20
+  //         }
+  //       }],
+  //       qtdePaginas: 2
+  //     }
 
-        const capa = document.createElement("div");
-        capa.classList.add("capa");
+  //     res.results.map((result) => {
 
-        const capaImg = document.createElement("img");
-        capaImg.onclick= () => window.location = `/pages/movie.html?id=${result.id}`;
-        capaImg.src = result.poster_path ? `https://image.tmdb.org/t/p/w200${result.poster_path}`:'/imagens/not_image.png';
-        capaImg.alt = `Capa de ${result.title}`;
-        capaImg.style.cursor = "pointer";
-        result.genre_ids.map((genre) => {
-          capa.classList.add(genre);
-        })
+  //       const filmeWrap = document.createElement("div");
+  //       filmeWrap.classList.add("filmeContent");
+  //       filmeWrap.onclick = () => loadTrailler(result.url_trailer);
 
-        capa.id = String(result.id);
-        capa.appendChild(capaImg);
+  //       const filmeImg = document.createElement("img");
+  //       filmeImg.src = result.image_url;
+  //       filmeImg.alt = `Capa de ${result.nome}`;
+  //       result.genre_ids.map((genre) => {
+  //         filmeWrap.classList.add(genre);
+  //       })
 
-        mostPopular.push(capa);
-      })
+  //       filmeWrap.id = String(result.id);
+  //       filmeWrap.appendChild(filmeImg);
 
-      mostPopularTotalPages = data.total_pages;
+  //       mostPopular.push(filmeWrap);
+  //     })
 
-      loadMore();
-    })
+  //     totalPages = res.total_pages;
+
+  //     loadMore();
+  //   });
+  // } else {
+  //   // FIXME colocar o id do usuário na url
+  //   fetch(`${baseUrl}filme_assistido/getAll?page=${currentPage}`)
+  //   .then(result => result.json())
+  //   .then(data => {
+  //     data.results.map((result) => {
+
+  //       const capa = document.createElement("div");
+  //       capa.classList.add("capa");
+
+  //       const capaImg = document.createElement("img");
+  //       capaImg.onclick= () => window.location = `/pages/movie.html?id=${result.id}`;
+  //       capaImg.src = result.poster_path ? `https://image.tmdb.org/t/p/w200${result.poster_path}`:'/imagens/not_image.png';
+  //       capaImg.alt = `Capa de ${result.title}`;
+  //       capaImg.style.cursor = "pointer";
+  //       result.genre_ids.map((genre) => {
+  //         capa.classList.add(genre);
+  //       })
+
+  //       capa.id = String(result.id);
+  //       capa.appendChild(capaImg);
+
+  //       mostPopular.push(capa);
+  //     })
+
+  //     totalPages = data.total_pages;
+
+  //     loadMore();
+  //   });
+  // }
   
-}
-
-const espacoCapas = document.getElementById("espaco_capas");
-const avals = document.getElementById("avals");
-
-async function addCapa(index) {
-  espacoCapas.appendChild(mostPopular[index]);
-
-  fetch(`${TMDBBaseURL}movie/${mostPopular[index].id}/reviews?api_key=${key}`)
-    .then(result => result.json())
-    .then(data => {
-      if(data.total_results > 0){
-        data.results.map(review => {
-          
-          const ava = document.createElement("div");
-          ava.classList.add("ava");
-  
-          const profileImg = document.createElement("img");
-          if(review.author_details.avatar_path.search("http") != -1) profileImg.src = review.author_details.avatar_path.slice(1);
-          else profileImg.src = `https://image.tmdb.org/t/p/w500/${review.author_details.avatar_path}`;
-          profileImg.alt = `Imagem de ${review.author}`;
-  
-          ava.appendChild(profileImg);
-  
-          const reviewWrapper = document.createElement("div");
-          reviewWrapper.classList.add("review-wrapper");
-  
-          const textWrapper = document.createElement("div");
-          textWrapper.classList.add("text");
-  
-          const profileTitle = document.createElement("h2");
-          profileTitle.append(review.author);
-          textWrapper.appendChild(profileTitle);
-  
-          const boldAval = document.createElement("span");
-          const boldOfAval = document.createElement("b");
-          boldOfAval.append("Avaliação: ");
-          boldAval.appendChild(boldOfAval);
-          textWrapper.appendChild(boldAval);
-  
-          const reviewText = document.createElement("span");
-          reviewText.append(review.content);
-          textWrapper.appendChild(reviewText);
-  
-          reviewWrapper.appendChild(textWrapper);
-  
-          const lastLine = document.createElement("div");
-          lastLine.classList.add("last-line");
-
-          const rating = document.createElement("div");
-          rating.classList.add("avalia");
-          for (let i = 0; i < 5; i++) {
-            const star = document.createElement("span");
-  
-            if(i < review.author_details.rating) star.append("★");
-            else star.append("☆");
-            
-            rating.appendChild(star);
-          }
-          lastLine.appendChild(rating);
-
-          const date = document.createElement("span");
-          const Str = review.created_at;
-          date.append(`${Str.slice(8,10)}/${Str.slice(5,7)}/${Str.slice(0,4)}`);
-
-          lastLine.appendChild(date);
-
-          reviewWrapper.appendChild(lastLine);
-          ava.appendChild(reviewWrapper);
-  
-          avals.appendChild(ava);
-        })
-      }
-    });
 }
 
 async function loadMore() {
   let foundItems = 0;
 
   for(let i=startMovies; i<finalMovies; i++) {
-
     if(i >= mostPopular.length) {
 
-      if(mostPopularPage === mostPopularTotalPages){
+      if(currentPage === totalPages){
         loadMoreButton.onclick = () => {};
         return;
       }
 
       startMovies = finalMovies + foundItems - 6;
 
-      mostPopularPage++;
-      return loadPopulars();
+      currentPage++;
+      return loadMovies();
     }
 
-    if(genres.value != "all") {
-      if (mostPopular[i].classList.contains(genres.value)) { 
-        await addCapa(i);
-        foundItems++;
-      }
-      else { 
-        finalMovies++;
-      }
-    } else {
-      await addCapa(i);
-    }
+    await addCapa(i);
   }
 
   startMovies = finalMovies;
-  finalMovies += 6;
+  finalMovies += 4;
 }
 
-document.addEventListener('DOMContentLoaded', loadPopulars);
+document.addEventListener('DOMContentLoaded', loadMovies);
 
 const loadMoreButton = document.getElementById("botao_filmes");
 
-loadMoreButton.onclick = () => {
-  espacoCapas.innerHTML = '';
-  avals.innerHTML = '';
-  loadMore()
+loadMoreButton.onclick = loadMore;
+
+const teste = document.getElementById('teste');
+const FilmSelectedOverlay = document.getElementById('FilmSelectedOverlay');
+
+// TODO carregar o trailer do clicado
+const loadTrailler = (url) => {
+  FilmSelectedOverlay.style.display = 'flex';
+}
+
+// TODO remove this
+document.getElementById('teste').onclick = loadTrailler;
+
+const filmDiv = document.getElementById('ShowFilm');
+
+const showMovieButton = document.getElementById('show-movie');
+showMovieButton.onclick = () => {
+  filmDiv.style.display = 'flex';
+  FilmSelectedOverlay.style.display = 'none';
+
+  setTimeout(() => {
+    filmDiv.style.display = 'none';
+    FilmSelectedOverlay.style.display = 'flex';
+  }, 2000);
 };
+
+FilmSelectedOverlay.onclick = e => {
+  if(e.target == FilmSelectedOverlay) FilmSelectedOverlay.style.display = 'none';
+}

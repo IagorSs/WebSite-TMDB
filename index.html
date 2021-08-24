@@ -5,15 +5,16 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     
-    <link rel="shortcut icon" href="images/icon.png">
+    <link rel="shortcut icon" href="images/icon.svg">
     <link rel="stylesheet" href="css/global.css" type="text/css">
     <link href="css/index.css" rel="stylesheet" type="text/css">
+    <link href="css/header.css" rel="stylesheet" type="text/css">
 
     <script src="https://code.jquery.com/jquery-3.5.0.js"
         integrity="sha256-r/AaFHrszJtwpe+tHyNi/XCfMxYpbsRg2Uqn0x3s2zc="
         crossorigin="anonymous"></script>
 
-    <title>IR Movies</title>
+    <title>AJEI</title>
 </head>
 
 
@@ -21,96 +22,100 @@
 
     <header>
         <a href="/">
-            <img src="images/logo.png" alt="Logo">
+            <img src="/images/white-icon.svg" alt="Logo">
         </a>
 
-        <div id="hamburguer">
-            <img src="images/Hamburguer-icon.svg" id="hamburguer_icon">
-    
-            <div id="hamburguer_labels">
-                <label for="rd_lancamento">Lançamentos</label>
-                <label for="rd_emdestaque">Em Destaque</label>
-                <label for="rd_avaliacoes">Avaliações</label>
-            </div>
-        </div>
+        <img src="/images/person.svg" alt="Meu usuário" id="user-profile">
 
-
-        <div class="search">
-            <input id="searchField" type="text" placeholder="Pesquisar Filmes...">
-            <input id="searchButton" type="submit" value="🔍︎">
+        <div id="menu-drop" style="display: none;">
+            <h3 id="MyProfile">Meu perfil</h3>
+            <h3 id="MyPlain">Meus planos</h3>
+            <h3 id="LogOut">Sair</h3>
         </div>
     </header>
 
-    <div class="scroll">
+    <div id="FilmSelectedOverlay">
+        <h1>Título brabo</h1>
 
-        <input type="radio" name="grupo" id="rd_lancamento" checked="true">
-        <input type="radio" name="grupo" id="rd_emdestaque">
-        <input type="radio" name="grupo" id="rd_avaliacoes">
+        <iframe width="80%" height="60%" src="https://www.youtube.com/embed/FDNNHh7TRN0" frameborder="0" allowfullscreen></iframe>
 
-        <section class="sections">
-            <div class="bloco-wrapper">
-                <section class="bloco" id="lancamento">
-                    <br>
-                    <div id="titulo_lan">
-                        <p class="titulo_lan">Lançamentos</p>
-                    </div>
-                    <div class="caixa_slider">
-                        
-                        <div id="slide-wrapper">
-                        </div>
-    
-                        <div style="text-align:center;" id="dot-wrapper">
-                        </div>
-                        
-                    </div>
-                </section>
-            </div>
-            
-            <div class="bloco-wrapper" id="emdestaque-wrapper">
-                <section class="bloco" id="emdestaque">
-                    <div id="titulo_dest">
-                        <p class="titulo_dest">Em Destaque</p>
-    
-                        <div class="barra_pesquisa">
-                            <select name="Gêneros" id="barra_pesquisa_id">
-                                <option value="all">Todos</option>
-                            </select>
-                        </div>
-    
-                        <div id="espaco_capas">
-                        </div>
-                        
-                        <div id="botao_filmes_wrapper">
-                            <button id="botao_filmes">
-                                Carregar mais
-                            </button>
-                        </div>
-                    </div>
-                </section>
-            </div>
+        <button class="primary-button" id="show-movie">Ir para o Filme</button>
+    </div>
 
-            <div class="bloco-wrapper">
-                <section class="bloco" id="avaliacoes">
-                    <p class="titulo_lan">Avaliações</p>
-                    <div class="conteudo" id ="avals">
-                    </div>
-                </section>
+    <div id="ShowFilm">
+        <img src="/images/pirataria.jpeg" alt="Quando vão entender que inferioridade é ceder pra pirataria?...">
+    </div>
+
+    <div class="content" id="content">
+
+        <select id="barra_pesquisa_id" class="primary-select">
+            <option value="viewers">Assistidos</option>
+        </select>
+
+        <div id="WrapperFilmes">
+            <!-- FIXME alter this -->
+            <div class="filmeContent" id="teste">
+                <img src="/images/not_image.png" alt="test">
+                <div class="textContent">
+                    <h2>Titulo brabo</h2>
+                    <p><b>Duração:</b> --:00</p>
+                    <p><b>Produtora:</b> Warner Braba junior</p>
+                    <p><b>Diretor:</b> Snyder Sluvast</p>
+                    <p><b>Ator Destaque:</b> Adam Sandy</p>
+                    <p><b>Sinopse:</b> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin a sapien elit. Vivamus consequat sagittis justo, et egestas massa luctus vel. Phasellus varius ac nisi sit amet tempus. Suspendisse consequat, erat at dapibus egestas, erat ipsum iaculis nunc, non finibus leo libero ac risus. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Maecenas ultricies lacus at facilisis pellentesque. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin a sapien elit. Vivamus consequat sagittis justo, et egestas massa luctus vel. Phasellus varius ac nisi sit amet tempus. Suspendisse consequat, erat at dapibus egestas, erat ipsum iaculis nunc, non finibus leo libero ac risus. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Maecenas ultricies lacus at facilisis pellentesque. Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                </div>
             </div>
-        </section>
-            
+            <div class="filmeContent">
+                <img src="/images/not_image.png" alt="test">
+                <div class="textContent">
+                    <h2>Titulo brabo</h2>
+                    <p><b>Duração:</b> --:00</p>
+                    <p><b>Produtora:</b> Warner Braba junior</p>
+                    <p><b>Diretor:</b> Snyder Sluvast</p>
+                    <p><b>Ator Destaque:</b> Adam Sandy</p>
+                    <p><b>Sinopse:</b> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin a sapien elit. Vivamus consequat sagittis justo, et egestas massa luctus vel. Phasellus varius ac nisi sit amet tempus. Suspendisse consequat, erat at dapibus egestas, erat ipsum iaculis nunc, non finibus leo libero ac risus. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Maecenas ultricies lacus at facilisis pellentesque. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin a sapien elit. Vivamus consequat sagittis justo, et egestas massa luctus vel. Phasellus varius ac nisi sit amet tempus. Suspendisse consequat, erat at dapibus egestas, erat ipsum iaculis nunc, non finibus leo libero ac risus. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Maecenas ultricies lacus at facilisis pellentesque. Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                </div>
+            </div>
+            <div class="filmeContent">
+                <img src="/images/not_image.png" alt="test">
+                <div class="textContent">
+                    <h2>Titulo brabo</h2>
+                    <p><b>Duração:</b> --:00</p>
+                    <p><b>Produtora:</b> Warner Braba junior</p>
+                    <p><b>Diretor:</b> Snyder Sluvast</p>
+                    <p><b>Ator Destaque:</b> Adam Sandy</p>
+                    <p><b>Sinopse:</b> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin a sapien elit. Vivamus consequat sagittis justo, et egestas massa luctus vel. Phasellus varius ac nisi sit amet tempus. Suspendisse consequat, erat at dapibus egestas, erat ipsum iaculis nunc, non finibus leo libero ac risus. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Maecenas ultricies lacus at facilisis pellentesque. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin a sapien elit. Vivamus consequat sagittis justo, et egestas massa luctus vel. Phasellus varius ac nisi sit amet tempus. Suspendisse consequat, erat at dapibus egestas, erat ipsum iaculis nunc, non finibus leo libero ac risus. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Maecenas ultricies lacus at facilisis pellentesque. Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                </div>
+            </div>
+            <div class="filmeContent">
+                <img src="/images/not_image.png" alt="test">
+                <div class="textContent">
+                    <h2>Titulo brabo</h2>
+                    <p><b>Duração:</b> --:00</p>
+                    <p><b>Produtora:</b> Warner Braba junior</p>
+                    <p><b>Diretor:</b> Snyder Sluvast</p>
+                    <p><b>Ator Destaque:</b> Adam Sandy</p>
+                    <p><b>Sinopse:</b> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin a sapien elit. Vivamus consequat sagittis justo, et egestas massa luctus vel. Phasellus varius ac nisi sit amet tempus. Suspendisse consequat, erat at dapibus egestas, erat ipsum iaculis nunc, non finibus leo libero ac risus. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Maecenas ultricies lacus at facilisis pellentesque. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin a sapien elit. Vivamus consequat sagittis justo, et egestas massa luctus vel. Phasellus varius ac nisi sit amet tempus. Suspendisse consequat, erat at dapibus egestas, erat ipsum iaculis nunc, non finibus leo libero ac risus. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Maecenas ultricies lacus at facilisis pellentesque. Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                </div>
+            </div>
+        </div>
+        
+        <!-- TODO se colocar paginação de filmes tira esse style -->
+        <button class="primary-button" id="botao_filmes" style="display: none;">
+            Carregar mais
+        </button>
+
     </div>
 
     <footer>
-        <div>
-            <h2>Site produzido por <b>Iagor de Sousa</b></h2>
-            <a target="_blank" href="https://github.com/IagorSs/WebSite-TMDB/blob/main/LICENSE"><h3>MIT LICENSE</h3></a>
-        </div>
-        <img src="images/logo.png" alt="Logo">
+        <a href="/">
+            <img src="/images/logo.png" alt="Logo">
+        </a>
     </footer>
-    
-</div>
 
-<script type="module" src="/js/index.js"></script>
+    <script type="module" src="/js/global.js"></script>
+    <script type="module" src="/js/index.js"></script>
+    <script type="module" src="/js/header.js"></script>
 
 </body>
 

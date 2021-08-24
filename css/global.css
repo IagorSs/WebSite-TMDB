@@ -20,7 +20,6 @@
 body {
   font-family: "Arial";
   padding: 0;
-  line-height: 20px;
   font-size: 14px;
   margin: 0px;
   background-color: var(--primary);
@@ -37,11 +36,14 @@ select {
   color: black;
 }
 
-p {
+p,
+h2 {
   text-align: justify;
+  margin: .4em 0;
 }
 
-.primary-button {
+.primary-button,
+.primary-select {
   cursor: pointer;
   transition: .2s;
   border-radius: 4px;
@@ -52,7 +54,8 @@ p {
   font-weight: bold;
 }
 
-.primary-button:hover{
+.primary-button:hover,
+.primary-select option:checked {
   color: var(--white);
   background-color: var(--secondary);
 }
