@@ -3,21 +3,23 @@ const userData = JSON.parse(sessionStorage.getItem('user'));
 const baseUrl = 'http://localhost:3000/api/v1/';
 
 const CategoriaField = document.getElementById('Categoria');
-fetch(`${baseUrl}/categoria/getAll`)
-  .then(res => {
-    if (res.status >= 400 && res.status < 600) {
-      throw new Error("Bad res from server");
-    }
-    return res.json();
-  })
-  .then(res => res.forEach(category => {
-    const categoryOption = document.createElement('option');
-    categoryOption.value = category;
-    categoryOption.innerText = category;
-
-    CategoriaField.appendChild(categoryOption);
-  }))
-  .catch(res => console.log(res));
+document.addEventListener('DOMContentLoaded', () => {
+  fetch(`${baseUrl}/categoria/getAll`)
+    .then(res => {
+      if (res.status >= 400 && res.status < 600) {
+        throw new Error("Bad res from server");
+      }
+      return res.json();
+    })
+    .then(res => res.forEach(category => {
+      const categoryOption = document.createElement('option');
+      categoryOption.value = category;
+      categoryOption.innerText = category;
+  
+      CategoriaField.appendChild(categoryOption);
+    }))
+    .catch(res => console.log(res));
+});
 
 // FIXME delete this
 ['test','test_2','brabo'].forEach(category => {
@@ -29,21 +31,23 @@ fetch(`${baseUrl}/categoria/getAll`)
 });
 
 const PagamentoField = document.getElementById('Pagamento');
-fetch(`${baseUrl}/pagamento/getAll`)
-  .then(res => {
-    if (res.status >= 400 && res.status < 600) {
-      throw new Error("Bad res from server");
-    }
-    return res.json();
-  })
-  .then(res => res.forEach(payment => {
-    const paymentOption = document.createElement('option');
-    paymentOption.value = payment;
-    paymentOption.innerText = payment;
-
-    PagamentoField.appendChild(paymentOption);
-  }))
-  .catch(res => console.log(res));
+document.addEventListener('DOMContentLoaded', () => {
+  fetch(`${baseUrl}/pagamento/getAll`)
+    .then(res => {
+      if (res.status >= 400 && res.status < 600) {
+        throw new Error("Bad res from server");
+      }
+      return res.json();
+    })
+    .then(res => res.forEach(payment => {
+      const paymentOption = document.createElement('option');
+      paymentOption.value = payment;
+      paymentOption.innerText = payment;
+  
+      PagamentoField.appendChild(paymentOption);
+    }))
+    .catch(res => console.log(res));
+});
 
 // FIXME delete this
 ['pay_1','pay_2'].forEach(payment => {
@@ -149,4 +153,4 @@ const loadData = () => {
 };
 
 CategoriaField.onchange = loadData;
-loadData();
+document.addEventListener('DOMContentLoaded', loadData);
