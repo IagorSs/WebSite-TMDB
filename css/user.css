@@ -7,6 +7,10 @@ body {
   margin-top: 16px;
 }
 
+form {
+  margin: 64px 0;
+}
+
 form button {
   width: 100%;
   margin-top: 64px !important;
