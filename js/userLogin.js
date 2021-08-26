@@ -1,4 +1,4 @@
-if (sessionStorage.getItem('user')) window.location.replace(`/pages/user.html`);
+if (sessionStorage.getItem('user')) window.location.replace(`/`);
 
 const forms = {
   login: '',
