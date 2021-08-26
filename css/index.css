@@ -41,13 +41,17 @@ h1 {
 }
 
 .filmeContent .textContent {
-    margin-left: 4px;
+    padding: 0 8px;
     overflow: auto;
 }
 
 .filmeContent img {
     height: 100%;
     width: auto;
+}
+
+.textContent {
+    width: 100%;
 }
 
 #FilmSelectedOverlay,
