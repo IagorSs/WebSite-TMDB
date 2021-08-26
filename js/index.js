@@ -53,11 +53,11 @@ async function loadMovies() {
       id: 0,
       categoria: 'tt',
       duracao: 125,
-      nome: 'titulo',
+      nome: 'teste dinamico',
       produtora: 'prod',
       arquivo: {},
       descricao: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin a sapien elit. Vivamus consequat sagittis justo, et egestas massa luctus vel. Phasellus varius ac nisi sit amet tempus. Suspendisse consequat, erat at dapibus egestas, erat ipsum iaculis nunc, non finibus leo libero ac risus. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Maecenas ultricies lacus at facilisis pellentesque. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin a sapien elit. Vivamus consequat sagittis justo, et egestas massa luctus vel. Phasellus varius ac nisi sit amet tempus. Suspendisse consequat, erat at dapibus egestas, erat ipsum iaculis nunc, non finibus leo libero ac risus. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Maecenas ultricies lacus at facilisis pellentesque. Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
-      url_trailer: 'url_trailer',
+      url_trailer: 'FDNNHh7TRN0',
       image_url: '/images/not_image.png',
       ator: {
         id: 2,
@@ -74,11 +74,11 @@ async function loadMovies() {
     qtdePaginas: 1
   }
   
-  dataTest.results.map((result) => {
+  dataTest.results.forEach((result) => {
 
     const filmeContent = document.createElement("div");
     filmeContent.classList.add("filmeContent");
-    filmeContent.onclick = () => loadTrailler(result.url_trailer);
+    filmeContent.onclick = () => loadOverlay(result);
 
     const filmeImg = document.createElement("img");
     filmeImg.src = result.image_url;
@@ -152,24 +152,34 @@ async function loadMore() {
 document.addEventListener('DOMContentLoaded', loadMovies);
 
 const loadMoreButton = document.getElementById("botao_filmes");
-
 loadMoreButton.onclick = loadMore;
 
-const teste = document.getElementById('teste');
 const FilmSelectedOverlay = document.getElementById('FilmSelectedOverlay');
-
-// TODO carregar o trailer do clicado
-const loadTrailler = (url) => {
+const loadOverlay = (filme) => {
   FilmSelectedOverlay.style.display = 'flex';
+
+  FilmSelectedOverlay.innerHTML = '';
+
+  const title = document.createElement('h1');
+  title.textContent = filme.nome;
+  FilmSelectedOverlay.appendChild(title);
+
+  const iframe = document.createElement('iframe');
+  iframe.width='80%';
+  iframe.height='60%';
+  iframe.allowFullscreen=true;
+  iframe.src=`https://www.youtube.com/embed/${filme.url_trailer}`;
+  FilmSelectedOverlay.appendChild(iframe);
+
+  const buttonFilme = document.createElement('button');
+  buttonFilme.classList.add('primary-button');
+  buttonFilme.innerText='Ir para o Filme';
+  buttonFilme.onclick= showFilme;
+  FilmSelectedOverlay.appendChild(buttonFilme);
 }
 
-// TODO remove this
-document.getElementById('teste').onclick = loadTrailler;
-
 const filmDiv = document.getElementById('ShowFilm');
-
-const showMovieButton = document.getElementById('show-movie');
-showMovieButton.onclick = () => {
+const showFilme = () => {
   filmDiv.style.display = 'flex';
   FilmSelectedOverlay.style.display = 'none';
 

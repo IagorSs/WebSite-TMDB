@@ -10,6 +10,10 @@ h1 {
     text-align: center;
 }
 
+iframe {
+    border: 0;
+}
+
 .content {
     padding: 32px 10vw;
     display: flex;
