@@ -13,6 +13,9 @@ myPlain.onclick = () => window.location.replace('/pages/userPlain.html');
 const actors = document.getElementById('Actors');
 actors.onclick = () => window.location.replace('/pages/actor.html');
 
+const directors = document.getElementById('Directors');
+directors.onclick = () => window.location.replace('/pages/director.html');
+
 const logOut = document.getElementById('LogOut');
 logOut.onclick = () => {
   sessionStorage.removeItem('user');
