@@ -10,6 +10,9 @@ myProfile.onclick = () => window.location.replace('/pages/user.html');
 const myPlain = document.getElementById('MyPlain');
 myPlain.onclick = () => window.location.replace('/pages/userPlain.html');
 
+const actors = document.getElementById('Actors');
+actors.onclick = () => window.location.replace('/pages/actor.html');
+
 const logOut = document.getElementById('LogOut');
 logOut.onclick = () => {
   sessionStorage.removeItem('user');

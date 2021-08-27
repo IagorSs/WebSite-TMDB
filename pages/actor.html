@@ -5,10 +5,11 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     
-    <link rel="shortcut icon" href="images/icon.svg">
-    <link rel="stylesheet" href="css/global.css" type="text/css">
-    <link href="css/index.css" rel="stylesheet" type="text/css">
-    <link href="css/header.css" rel="stylesheet" type="text/css">
+    <link rel="shortcut icon" href="/images/icon.svg">
+    <link rel="stylesheet" href="/css/global.css" type="text/css">
+    <link href="/css/twoButtonContent.css" rel="stylesheet" type="text/css">
+    <link href="/css/header.css" rel="stylesheet" type="text/css">
+    <link href="/css/input-field.css" rel="stylesheet" type="text/css">
 
     <script src="https://code.jquery.com/jquery-3.5.0.js"
         integrity="sha256-r/AaFHrszJtwpe+tHyNi/XCfMxYpbsRg2Uqn0x3s2zc="
@@ -19,7 +20,6 @@
 
 
 <body>
-
     <header>
         <a href="/">
             <img src="/images/white-icon.svg" alt="Logo">
@@ -36,27 +36,9 @@
         </div>
     </header>
 
-    <div id="FilmSelectedOverlay">
-    </div>
-
-    <div id="ShowFilm">
-        <img src="/images/pirataria.jpeg" alt="Quando vão entender que inferioridade é ceder pra pirataria?...">
-    </div>
-
-    <div class="content" id="content">
-
-        <select id="barra_pesquisa_id" class="primary-select">
-            <option value="viewers">Assistidos</option>
-        </select>
-
-        <div id="WrapperFilmes">
-        </div>
-        
-        <!-- TODO se colocar paginação de filmes tira esse style -->
-        <button class="primary-button" id="botao_filmes" style="display: none;">
-            Carregar mais
-        </button>
-
+    <div class="content">
+        <button class="primary-button" type="button" id="RegisterActor">Cadastrar novo ator</button>
+        <button class="primary-button" type="button" id="EditActor">Editar ator existente</button>
     </div>
 
     <footer>
@@ -65,9 +47,9 @@
         </a>
     </footer>
 
-    <script type="module" src="/js/global.js"></script>
-    <script type="module" src="/js/index.js"></script>
+    <script type="module" src="/js/actor.js"></script>
     <script type="module" src="/js/header.js"></script>
+    <script type="module" src="/js/global.js"></script>
 
 </body>
 
