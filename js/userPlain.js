@@ -54,10 +54,13 @@ const ExpiracaoField = document.getElementById('Expiracao');
 
 ScreensField.onchange = ({target}) => {
   if(currentPlain) {
-    if(target.value == 0) ConfirmPlain.innerText = 'Deletar';
+    if(target.value <= 0) ConfirmPlain.innerText = 'Deletar';
     else ConfirmPlain.innerText = 'Atualizar';
   }
-  else ConfirmPlain.innerText = 'Contratar';
+  else {
+    ConfirmPlain.disabled = target.value <= 0;
+    ConfirmPlain.innerText = 'Contratar';
+  }
 }
 
 let currentPlain;
