@@ -52,16 +52,21 @@ const PagamentoField = document.getElementById('Pagamento');
 const ScreensField = document.getElementById('Screens');
 const ExpiracaoField = document.getElementById('Expiracao');
 
-ScreensField.onchange = ({target}) => {
+const screensOnChanged = () => {
+  const { value } = ScreensField;
+  
   if(currentPlain) {
-    if(target.value <= 0) ConfirmPlain.innerText = 'Deletar';
+    ConfirmPlain.disabled = false;
+    if(value <= 0) ConfirmPlain.innerText = 'Deletar';
     else ConfirmPlain.innerText = 'Atualizar';
   }
   else {
-    ConfirmPlain.disabled = target.value <= 0;
+    ConfirmPlain.disabled = value <= 0;
     ConfirmPlain.innerText = 'Contratar';
   }
-}
+};
+
+ScreensField.onchange = screensOnChanged;
 
 let currentPlain;
 
@@ -147,4 +152,7 @@ UpdatedForm.onsubmit = (e) => {
 
 }
 
-CategoriaField.onchange = (e) => attPlainData(e.target.value);
+CategoriaField.onchange = (e) => {
+  attPlainData(e.target.value);
+  screensOnChanged();
+};
