@@ -42,8 +42,15 @@ UpdatedForm.onsubmit = (e) => {
     }
     return res.json();
   })
-  .then(res => setUserSessionStorage(res))
-  .catch(res => console.log(res));
+  .then(res => {
+    alert('Atualizado com sucesso!');
+    sessionStorage.setItem('user',JSON.stringify(res));
+    window.location.reload();
+  })
+  .catch(res => {
+    alert('Houve um erro na atualização');
+    console.log(res)
+  });
 }
 
 const DeleteUser = document.getElementById('DeleteUser');
@@ -55,12 +62,11 @@ DeleteUser.onclick = () => {
     if (res.status >= 400 && res.status < 600) {
       throw new Error("Bad res from server");
     }
-    return res.json();
+    alert('Usuário deletado!');
   })
-  .then(() => {
-    sessionStorage.removeItem('user');
-    window.location.reload();
-  })
-  .catch(res => console.log(res));
+  .catch(res => {
+    alert('Houve um erro na atualização');
+    console.log(res);
+  });
 
 }
