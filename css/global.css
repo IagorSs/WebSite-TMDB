@@ -59,3 +59,10 @@ h2 {
   color: var(--white);
   background-color: var(--secondary);
 }
+
+.primary-button:disabled {
+  cursor: auto;
+  color: black;
+  background-color: var(--white);
+  opacity: .8;
+}
