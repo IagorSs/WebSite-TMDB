@@ -84,5 +84,21 @@ iframe {
 }
 
 #FilmSelectedOverlay > * + * {
-    margin-top: 64px;
+    margin-top: 32px;
+}
+
+.overlay-buttons {
+    display: flex;
+    width: 80%;
+    justify-content: space-evenly;
+}
+
+@media (max-width: 560px){
+    .overlay-buttons {
+        flex-direction: column;
+    }
+
+    .overlay-buttons > * + * {
+        margin-top: 8px;
+    }
 }
