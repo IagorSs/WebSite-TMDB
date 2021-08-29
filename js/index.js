@@ -5,14 +5,14 @@ const categories = document.getElementById("barra_pesquisa_id");
 const user = JSON.parse(sessionStorage.getItem('user'));
 
 document.addEventListener('DOMContentLoaded', () => {
-  fetch(`${baseUrl}categoria_filme/getAll`)
+  fetch(`${baseUrl}plano/get/${user.inscricao}`)
     .then(res => {
       if (res.status >= 400 && res.status < 600) {
         throw new Error("Bad res from server");
       }
       return res.json();
     })
-    .then(res => res.forEach(category => {
+    .then(res => res.forEach(({categoria: category}) => {
       const categoryOption = document.createElement('option');
       categoryOption.value = category;
       categoryOption.innerText = category;
