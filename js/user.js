@@ -63,6 +63,7 @@ DeleteUser.onclick = () => {
       throw new Error("Bad res from server");
     }
     alert('Usuário deletado!');
+    sessionStorage.removeItem('user');
     window.location.reload();
   })
   .catch(res => {
