@@ -13,6 +13,8 @@ passField.onchange = ({ target }) => forms.senha = target.value;
 
 const form = document.getElementById('user-form');
 form.onsubmit = (event) => {
+  event.preventDefault();
+
   const headers = {
     'Accept': 'application/json',
     'Content-Type': 'application/json'
@@ -20,47 +22,41 @@ form.onsubmit = (event) => {
 
   const baseUrl = 'http://localhost:3000/api/v1/';
 
-  switch (event.submitter.name) {
-    // TODO implementar chamada na API pra retornar os dados
-    case 'Login':
-      fetch(`${baseUrl}usuario/login`, {
-        method: 'POST',
-        headers,
-        body: JSON.stringify(forms)
-      })
-      .then(res => {
-        if (res.status >= 400 && res.status < 600) {
-          throw new Error("Bad res from server");
-        }
-        return res.json();
-      })
-      .then(res => setUserSessionStorage(res))
-      .catch(res => console.log(res));
+  let apiPath;
 
+  switch (event.submitter.name) {
+    case 'Login':
+      apiPath='login';
       break;
     case 'Register':
-      // fetch(`${baseUrl}usuario/novo`, {
-      //   method: 'POST',
-      //   headers,
-      //   body: JSON.stringify(forms)
-      // })
-      // .then(res => {
-      //   if (res.status >= 400 && res.status < 600) {
-      //     throw new Error("Bad res from server");
-      //   }
-      //   return res.json();
-      // })
-      // .then(res => setUserSessionStorage(res))
-      // .catch(res => console.log(res));
-
-      // FIXME remove this
-      setUserSessionStorage({inscricao: '123', email: 'email_test', nome: 'nomeTest', login: 'loginTest'});
-
+      apiPath='novo';
       break;
     default:
       console.log('Inesperado');
       break;
   }
+
+  fetch(`${baseUrl}usuario/${apiPath}`, {
+    method: 'POST',
+    headers,
+    body: JSON.stringify(forms)
+  })
+  .then(res => {
+    if (res.status >= 400 && res.status < 600) {
+      throw new Error("Bad res from server");
+    }
+    return res.json();
+  })
+  .then(res => {
+    console.log('us', res);
+    setUserSessionStorage(res);
+    window.location.reload();
+  })
+  .catch(res => {
+    alert('Houve um erro');
+    console.log(res);
+  });
+
 }
 
 const setUserSessionStorage = tokenObject => sessionStorage.setItem('user', JSON.stringify(tokenObject))
