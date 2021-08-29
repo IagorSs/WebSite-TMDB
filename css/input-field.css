@@ -20,3 +20,16 @@
   padding: 0.5em;
   font-size: small;
 }
+
+.checkbox {
+  flex-direction: row;
+  align-items: center;
+}
+
+.checkbox input {
+  margin: 0;
+}
+
+.checkbox > * + * {
+  margin: 0 0 0 8px;
+}

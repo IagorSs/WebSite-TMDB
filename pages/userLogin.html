@@ -23,7 +23,7 @@
     <form class="content" id="user-form">
         <img src="/images/logo.png" alt="AJEI">
         <div class="input-field">
-            <label for="User">Login</label>
+            <label for="User" id="UserLabel">Login</label>
             <input type="text" id="User"/>
         </div>
 
@@ -32,10 +32,12 @@
             <input type="password" id="Pass"/>
         </div>
 
-        <div class="buttons">
-            <button class="primary-button" type="submit" name="Login">Entrar</button>
-            <button class="primary-button" type="submit" name="Register">Cadastrar</button>
+        <div class="input-field checkbox">
+            <input type="checkbox" id="EnableRegister" />
+            <label for="EnableRegister">Não tenho uma conta</label>
         </div>
+
+        <button class="primary-button" type="submit" id="SubmitButton">Entrar</button>
     </form>
 
     <script type="module" src="/js/userLogin.js"></script>

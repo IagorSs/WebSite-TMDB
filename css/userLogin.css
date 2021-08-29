@@ -21,15 +21,9 @@ body {
   margin-top: 16px;
 }
 
-.buttons {
-  display: flex;
+button {
   width: 100%;
-  justify-content: space-between;
-}
-
-.buttons > * {
-  width: 48%;
-  min-width: 110px;
+  margin-top: 24px !important;
 }
 
 img {

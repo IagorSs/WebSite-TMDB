@@ -1,15 +1,25 @@
 if (sessionStorage.getItem('user')) window.location.replace(`/`);
 
 const forms = {
-  login: '',
-  senha: ''
+  userOrEmail: '',
+  password: ''
 };
 
+const userLabel = document.getElementById('UserLabel');
+
+const submitButton = document.getElementById('SubmitButton');
+
+const isRegister = document.getElementById('EnableRegister');
+isRegister.onchange = ({ target }) => {
+  userLabel.innerText = target.checked ? 'Email':'Login';
+  submitButton.innerText = target.checked ? 'Cadastrar':'Entrar';
+}
+
 const userField = document.getElementById('User');
-userField.onchange = ({ target }) => forms.login = target.value;
+userField.onchange = ({ target }) => forms.userOrEmail = target.value;
 
 const passField = document.getElementById('Pass');
-passField.onchange = ({ target }) => forms.senha = target.value;
+passField.onchange = ({ target }) => forms.password = target.value
 
 const form = document.getElementById('user-form');
 form.onsubmit = (event) => {
@@ -22,24 +32,22 @@ form.onsubmit = (event) => {
 
   const baseUrl = 'http://localhost:3000/api/v1/';
 
-  let apiPath;
+  const apiPath = isRegister.checked ? 'novo':'login';
 
-  switch (event.submitter.name) {
-    case 'Login':
-      apiPath='login';
-      break;
-    case 'Register':
-      apiPath='novo';
-      break;
-    default:
-      console.log('Inesperado');
-      break;
+  const body = isRegister.checked
+  ? {
+    email: forms.userOrEmail,
+    senha: forms.password
+  }
+  : {
+    login: forms.userOrEmail,
+    senha: forms.password
   }
 
   fetch(`${baseUrl}usuario/${apiPath}`, {
     method: 'POST',
     headers,
-    body: JSON.stringify(forms)
+    body: JSON.stringify(body)
   })
   .then(res => {
     if (res.status >= 400 && res.status < 600) {
