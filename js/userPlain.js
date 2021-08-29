@@ -2,64 +2,92 @@ const userData = JSON.parse(sessionStorage.getItem('user'));
 
 const baseUrl = 'http://localhost:3000/api/v1/';
 
+let planosContratados = {
+  "categoria": {
+    telasContratadas: 1,
+    Pagemtno: 'debito',
+    expiracao: new Date()
+  }
+};
+
 const CategoriaField = document.getElementById('Categoria');
 document.addEventListener('DOMContentLoaded', () => {
-  fetch(`${baseUrl}/categoria/getAll`)
+  fetch(`${baseUrl}categoria_filme/getAll`)
     .then(res => {
       if (res.status >= 400 && res.status < 600) {
         throw new Error("Bad res from server");
       }
       return res.json();
     })
-    .then(res => res.forEach(category => {
-      const categoryOption = document.createElement('option');
-      categoryOption.value = category;
-      categoryOption.innerText = category;
-  
-      CategoriaField.appendChild(categoryOption);
-    }))
-    .catch(res => console.log(res));
-});
+    .then(res => {
+      res.forEach(category => {
+        const categoryOption = document.createElement('option');
+        categoryOption.value = category;
+        categoryOption.innerText = category;
+    
+        CategoriaField.appendChild(categoryOption);
+      });
 
-// FIXME delete this
-['test','test_2','brabo'].forEach(category => {
-  const categoryOption = document.createElement('option');
-  categoryOption.value = category;
-  categoryOption.innerText = category;
-
-  CategoriaField.appendChild(categoryOption);
+      fetch(`${baseUrl}plano/get/${userData.inscricao}`)
+        .then(plains => {
+          if (plains.status >= 400 && plains.status < 600) {
+            throw new Error("Bad res from server");
+          }
+          return plains.json();
+        })
+        .then(plains => {
+          plains.forEach(plano => {
+            planosContratados[plano.categoria] = plano;
+            attPlainData(res[0]);
+          })
+        });
+    })
+    .catch(res => {
+      alert('Houve um erro');
+      console.log(res);
+    });
 });
 
 const PagamentoField = document.getElementById('Pagamento');
-document.addEventListener('DOMContentLoaded', () => {
-  fetch(`${baseUrl}/pagamento/getAll`)
-    .then(res => {
-      if (res.status >= 400 && res.status < 600) {
-        throw new Error("Bad res from server");
-      }
-      return res.json();
-    })
-    .then(res => res.forEach(payment => {
-      const paymentOption = document.createElement('option');
-      paymentOption.value = payment;
-      paymentOption.innerText = payment;
-  
-      PagamentoField.appendChild(paymentOption);
-    }))
-    .catch(res => console.log(res));
-});
-
-// FIXME delete this
-['pay_1','pay_2'].forEach(payment => {
-  const paymentOption = document.createElement('option');
-  paymentOption.value = payment;
-  paymentOption.innerText = payment;
-
-  PagamentoField.appendChild(paymentOption);
-});
-
 const ScreensField = document.getElementById('Screens');
 const ExpiracaoField = document.getElementById('Expiracao');
+
+ScreensField.onchange = ({target}) => {
+  if(currentPlain) {
+    if(target.value == 0) ConfirmPlain.innerText = 'Deletar';
+    else ConfirmPlain.innerText = 'Atualizar';
+  }
+  else ConfirmPlain.innerText = 'Contratar';
+}
+
+let currentPlain;
+
+const attPlainData = (categoria) => {
+  currentPlain = planosContratados[categoria];
+
+  if(currentPlain){
+    ExpiracaoField.value = currentPlain.expiracao;
+
+    const { options } = PagamentoField;
+    for (let j = 0; j < options.length; j++) {
+      const opt = options[j];
+      
+      if (opt.value === currentPlain.pagamento) {
+          PagamentoField.selectedIndex = j;
+          break;
+      }
+    }
+
+    ScreensField.value = currentPlain.nTelas;
+    ConfirmPlain.innerText = 'Atualizar';
+  } else {
+    ScreensField.value = 0;
+    PagamentoField.selectedIndex = 0;
+    ExpiracaoField.value = null;
+    ConfirmPlain.innerText = 'Contratar';
+  }
+}
+
 const UpdatedForm = document.getElementById('UpdatedForm');
 
 const ConfirmPlain = document.getElementById('ConfirmPlain');
@@ -80,19 +108,25 @@ UpdatedForm.onsubmit = (e) => {
     expiracao: ExpiracaoField.value
   });
 
-  if(ConfirmPlain.innerText === 'Atualizar') fetch(`${baseUrl}plano/atualizar`, {
-    method: 'PUT',
-    headers,
-    body
-  })
-  .then(res => {
-    if (res.status >= 400 && res.status < 600) {
-      throw new Error("Bad res from server");
-    }
-  })
-  .catch(res => console.log(res));
-  else fetch(`${baseUrl}plano/novo`, {
-    method: 'POST',
+  let method, apiPath;
+
+  switch(ConfirmPlain.innerText) {
+    case 'Atualizar':
+      method = 'PUT';
+      apiPath = 'atualizar';
+      break;
+    case 'Contratar':
+      method = 'POST';
+      apiPath = 'novo';
+      break;
+    case 'Deletar':
+      method = 'DELETE';
+      apiPath = `deletar/${userData.inscricao}/${CategoriaField.value}`;
+      break;
+  }
+
+  fetch(`${baseUrl}plano/${apiPath}`, {
+    method,
     headers,
     body
   })
@@ -100,57 +134,14 @@ UpdatedForm.onsubmit = (e) => {
     if (res.status >= 400 && res.status < 600) {
       throw new Error("Bad res from server");
     };
+    alert('Sucesso na operação');
+    window.location.reload();
   })
-  .catch(res => console.log(res));
+  .catch(res => {
+    console.log(res);
+    alert('Ocorreu um erro, tente novamente');
+  });
 
 }
 
-const DeletePlain = document.getElementById('DeletePlain');
-DeletePlain.onclick = () => {
-  fetch(`${baseUrl}plano/deletar/${userData.inscricao}/${CategoriaField.value}`, {
-    method: 'DELETE'
-  })
-  .then(res => {
-    if (res.status >= 400 && res.status < 600) {
-      throw new Error("Bad res from server");
-    }
-    return res.json();
-  })
-  .then(() => window.location.reload())
-  .catch(res => console.log(res));
-}
-
-const loadData = () => {
-  fetch(`${baseUrl}plano/get/${userData.inscricao}/${CategoriaField.value}`)
-  .then(res => {
-    const { status } = res;
-    if (status >= 400 && status < 600 && status != 404) {
-      throw new Error("Bad res from server");
-    }
-
-    // FIXME change this
-    // return res.json();
-    return null;
-  })
-  .then(res => {
-    console.log('res', res);
-    // FIXME conferir como validar esse obj
-    if (res !== null) {
-      ScreensField.value = res.n_telas;
-      ExpiracaoField.value = res.expiracao;
-      PagamentoField.value = res.pagamento;
-      DeletePlain.style.display = 'unset';
-      ConfirmPlain.innerText = 'Atualizar';
-    } else {
-      ScreensField.value = 0;
-      ExpiracaoField.value = null;
-      PagamentoField.value = null;
-      DeletePlain.style.display = 'none';
-      ConfirmPlain.innerText = 'Criar';
-    }
-  })
-  .catch(res => console.log(res));
-};
-
-CategoriaField.onchange = loadData;
-document.addEventListener('DOMContentLoaded', loadData);
+CategoriaField.onchange = (e) => attPlainData(e.target.value);
