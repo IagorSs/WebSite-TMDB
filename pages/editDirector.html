@@ -1,0 +1,81 @@
+<!doctype html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    
+    <link rel="shortcut icon" href="/images/icon.svg">
+    <link rel="stylesheet" href="/css/global.css" type="text/css">
+    <link href="/css/user.css" rel="stylesheet" type="text/css">
+    <link href="/css/header.css" rel="stylesheet" type="text/css">
+    <link href="/css/input-field.css" rel="stylesheet" type="text/css">
+
+    <script src="https://code.jquery.com/jquery-3.5.0.js"
+        integrity="sha256-r/AaFHrszJtwpe+tHyNi/XCfMxYpbsRg2Uqn0x3s2zc="
+        crossorigin="anonymous"></script>
+
+    <title>AJEI</title>
+</head>
+
+
+<body>
+    <header>
+        <a href="/">
+            <img src="/images/white-icon.svg" alt="Logo">
+        </a>
+
+        <img src="/images/person.svg" alt="Meu usuário" id="user-profile">
+
+        <div id="menu-drop" style="display: none;">
+            <h3 id="MyProfile">Meu perfil</h3>
+            <h3 id="MyPlain">Meus planos</h3>
+            <h3 id="Actors">Atores</h3>
+            <h3 id="Directors">Diretores</h3>
+            <h3 id="LogOut">Sair</h3>
+        </div>
+    </header>
+
+    <form id="UpdatedForm" class="content">
+
+        <div class="input-field">
+            <label for="Id">Id</label>
+            <select id="Id">
+            </select>
+        </div>
+    
+        <div class="input-field">
+            <label for="Name">Nome</label>
+            <input type="text" id="Name"/>
+        </div>
+
+        <div class="input-field">
+            <label for="Birthday">Nascimento</label>
+            <input type="date" id="Birthday" />
+        </div>
+
+        <div class="input-field">
+            <label for="FilmesDirigidos">FilmesDirigidos</label>
+            <input type="number" id="FilmesDirigidos" disabled />
+        </div>
+
+        <button class="primary-button" type="submit" name="EditDirector">Editar Diretor</button>
+        <button class="primary-button" type="submit" name="DeleteDirector">Deletar Diretor</button>
+
+    </form>
+
+    <footer>
+        <a href="/">
+            <img src="/images/logo.png" alt="Logo">
+        </a>
+    </footer>
+
+
+    <script type="module" src="/js/editDirector.js"></script>
+    <script type="module" src="/js/header.js"></script>
+    <script type="module" src="/js/global.js"></script>
+
+</body>
+
+
+</html>
