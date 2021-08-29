@@ -1,0 +1,47 @@
+body {
+  justify-content: space-between;
+  align-items: center;
+}
+
+form {
+  width: 100%;
+  padding: 64px 10vw;
+}
+
+form button {
+  width: 100%;
+}
+
+form > * + * {
+  margin-top: 32px;
+}
+
+form > * {
+  display: flex;
+  justify-content: center;
+}
+
+#ImagesForm {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  width: 40vw;
+  padding: 16px 0;
+}
+
+#ImagesForm > * {
+  min-height: 25vw;
+  border: 0;
+}
+
+form > * > * + * {
+  margin-left: 16px;
+}
+
+#ContentForm > * > * + * {
+  margin-top: 16px;
+}
+
+form .content {
+  width: 37vw;
+}

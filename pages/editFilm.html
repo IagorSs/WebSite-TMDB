@@ -1,0 +1,126 @@
+<!doctype html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    
+    <link rel="shortcut icon" href="/images/icon.svg">
+    <link rel="stylesheet" href="/css/global.css" type="text/css">
+    <link href="/css/editFilm.css" rel="stylesheet" type="text/css">
+    <link href="/css/header.css" rel="stylesheet" type="text/css">
+    <link href="/css/input-field.css" rel="stylesheet" type="text/css">
+
+    <script src="https://code.jquery.com/jquery-3.5.0.js"
+        integrity="sha256-r/AaFHrszJtwpe+tHyNi/XCfMxYpbsRg2Uqn0x3s2zc="
+        crossorigin="anonymous"></script>
+
+    <title>AJEI</title>
+</head>
+
+
+<body>
+    <header>
+        <a href="/">
+            <img src="/images/white-icon.svg" alt="Logo">
+        </a>
+
+        <img src="/images/person.svg" alt="Meu usuário" id="user-profile">
+
+        <div id="menu-drop" style="display: none;">
+            <h3 id="MyProfile">Meu perfil</h3>
+            <h3 id="MyPlain">Meus planos</h3>
+            <h3 id="Actors">Atores</h3>
+            <h3 id="Directors">Diretores</h3>
+            <h3 id="LogOut">Sair</h3>
+        </div>
+    </header>
+
+    <form id="UpdatedForm">
+
+        <div id="ContentForm">
+            <div id="ImagesForm">
+                <img width="100%" id="Poster">
+                <iframe id="Trailer" width="100%" allowfullscreen></iframe>
+            </div>
+    
+            <div class="content">
+                <div class="input-field">
+                    <label for="Id">Id</label>
+                    <input type="text" id="Id" disabled/>
+                </div>
+
+                <div class="input-field">
+                    <label for="Name">Nome</label>
+                    <input type="text" id="Name"/>
+                </div>
+            
+                <div class="input-field">
+                    <label for="Description">Descrição</label>
+                    <input type="text" id="Description"/>
+                </div>
+
+                <div class="input-field">
+                    <label for="Duration">Duração</label>
+                    <input type="time" id="Duration"/>
+                </div>
+
+                <div class="input-field">
+                    <label for="Category">Categoria</label>
+                    <select id="Category">
+                    </select>
+                </div>
+
+                <div class="input-field">
+                    <label for="File">Arquivo</label>
+                    <input type="text" id="File" disabled value="Nós não incentivamos a pirataria!"/>
+                </div>
+
+                <div class="input-field">
+                    <label for="Image">Url do Poster do Filme</label>
+                    <input type="text" id="Image" />
+                </div>
+
+                <div class="input-field">
+                    <label for="TrailerId">Id do Trailer do Youtube</label>
+                    <input type="text" id="TrailerId" />
+                </div>
+
+                <div class="input-field">
+                    <label for="Productor">Produtora</label>
+                    <input type="text" id="Productor"/>
+                </div>
+
+                <div class="input-field">
+                    <label for="Actor">Ator Principal</label>
+                    <select id="Actor">
+                    </select>
+                </div>
+
+                <div class="input-field">
+                    <label for="Director">Diretor</label>
+                    <select id="Director">
+                    </select>
+                </div>
+            </div>
+        </div>
+
+        <button class="primary-button" type="submit">Atualizar</button>
+
+    </form>
+
+    <footer>
+        <a href="/">
+            <img src="/images/logo.png" alt="Logo">
+        </a>
+    </footer>
+
+
+    <script type="module" src="/js/editFilm.js"></script>
+    <script type="module" src="/js/header.js"></script>
+    <script type="module" src="/js/global.js"></script>
+
+</body>
+
+
+</html>
