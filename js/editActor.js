@@ -19,11 +19,19 @@ const actors = {};
 
 idField.onchange = () => attData();
 
+const attFormsData = () => {
+  form.id = idField.value;
+  form.nome = nameField.value;
+  form.nascimento = birthdayField.value;
+}
+
 const attData = () => {
   const current = actors[idField.value];
 
   nameField.value = current.nome;
   birthdayField.value = current.nascimento;
+
+  attFormsData();
 }
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -45,10 +53,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
         idField.appendChild(opt);
       });
-
-      form.id = res[0].id;
-      form.nome = res[0].nome;
-      form.nascimento = res[0].nascimento;
 
       attData();
     })
