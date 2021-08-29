@@ -63,6 +63,7 @@ DeleteUser.onclick = () => {
       throw new Error("Bad res from server");
     }
     alert('Usuário deletado!');
+    window.location.reload();
   })
   .catch(res => {
     alert('Houve um erro na atualização');
