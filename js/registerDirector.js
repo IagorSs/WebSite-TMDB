@@ -3,7 +3,7 @@ const form = {
   nascimento: ''
 };
 
-const baseUrl = 'http://localhost:3000/api/v1/';
+const baseUrl = 'https://api-tp-bd.herokuapp.com/api/v1/';
 
 const nameField = document.getElementById('Name');
 nameField.onchange = ({target}) => form.nome = target.value;

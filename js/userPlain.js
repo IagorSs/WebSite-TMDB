@@ -1,6 +1,6 @@
 const userData = JSON.parse(sessionStorage.getItem('user'));
 
-const baseUrl = 'http://localhost:3000/api/v1/';
+const baseUrl = 'https://api-tp-bd.herokuapp.com/api/v1/';
 
 let planosContratados = {};
 

@@ -5,7 +5,7 @@ const form = {
   nFilmesDirigidos: 0
 };
 
-const baseUrl = 'http://localhost:3000/api/v1/';
+const baseUrl = 'https://api-tp-bd.herokuapp.com/api/v1/';
 
 const idField = document.getElementById('Id');
 idField.onchange = ({target}) => form.id = target.value;

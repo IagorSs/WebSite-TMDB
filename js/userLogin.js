@@ -30,7 +30,7 @@ form.onsubmit = (event) => {
     'Content-Type': 'application/json'
   };
 
-  const baseUrl = 'http://localhost:3000/api/v1/';
+  const baseUrl = 'https://api-tp-bd.herokuapp.com/api/v1/';
 
   const apiPath = isRegister.checked ? 'novo':'login';
 

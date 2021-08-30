@@ -1,4 +1,4 @@
-const baseUrl = 'http://localhost:3000/api/v1/';
+const baseUrl = 'https://api-tp-bd.herokuapp.com/api/v1/';
 
 const formatTwoNumber = (numb) => numb < 10 ? `0${numb}`:`${numb}`;
 const formatMinutes = (min) => `${formatTwoNumber(Math.floor(min / 60))}:${formatTwoNumber(min % 60)}`

@@ -15,7 +15,7 @@ LoginField.value = userData.login;
 const PassField = document.getElementById('Pass');
 const UpdatedForm = document.getElementById('UpdatedForm');
 
-const baseUrl = 'http://localhost:3000/api/v1/';
+const baseUrl = 'https://api-tp-bd.herokuapp.com/api/v1/';
 
 UpdatedForm.onsubmit = (e) => {
   e.preventDefault();
