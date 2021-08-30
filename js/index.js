@@ -23,7 +23,7 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 const loadCategory = (value) => {
-  let apiPath = value === 'Assistidos' ? `filmeAssistidoPor/${user.inscricao}`:`filme/getCategoria/${value}`;
+  let apiPath = value === 'Assistidos' ? `assistidosDoUsuario/${user.inscricao}`:`filme/getCategoria/${value}`;
   
   fetch(`${baseUrl}${apiPath}`)
     .then(res => res.json())
